@@ -3,7 +3,7 @@
 
 import scipy
 import matplotlib
-import clawpack
+import pyclaw
 
 input = raw_input('this is how we input a variable\n')
 
