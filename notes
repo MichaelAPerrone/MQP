@@ -1,0 +1,8 @@
+use virtualenv to run the clawpack code:
+
+activate virtual environment with
+. ven/bin/activate
+install dependencies for the project with
+pip install -r requirements.txt
+deactivate virtual environment with
+deactivate
