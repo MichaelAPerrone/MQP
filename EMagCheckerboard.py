@@ -5,35 +5,34 @@ r"""
 1D polarised EM wave equation w/ variable coeficcients in space and time
 ==============================================
 
-Solve variable-coefficient maxwells equations without free charges or current in 1+1D:
+Solve variable-coefficient maxwells equations without free charges or currents, but with variable material properties in 1+1D:
 
 .. math:: 
-    \phi_t +  (\psi_x) / \mu(x,t) & = 0 \\ 
-    \psi_t + (\phi_x) / \epsilon(x,t) & = 0 \\
+    \phi_t +  (\psi_x) / \epsilon(x,t) & = 0 \\ 
+    \psi_t + (\phi_x) / \mu(x,t) & = 0 \\
 
-Here we set up potentials :math:`\phi_x = B` for magnetic field,
-:math:`\psi_x = D` for electric displacement field,
-:math:`\mu(x,y,t)` is the bulk modulus,
-and :math:`\rho(x,y)` is the density.
-
-This example shows how to solve a problem with variable coefficients.
-It was adapted from a 2D example, so it can use the Y axis if needed, but our implementation turns it off
+This code utilizes a finite volume method available in Clawpack for use with the acoustics equation to simulate electromagnetic wave
+propagation for a polarized plane wave in a 1+1D geometry with material properties that are variable in space and time.
+Potentials are used to represent the electromagnetic system, with :math:`\phi_x & = B` and :math:`\psi_t & = B / \mu(x,t)` for magnetic field,
+:math:`\psi_x & = D` and :math:`\phi_t & = D / \epsilon(x,t)` for electric displacement,
+:math:`\mu(x,t) & = 1 / K` is the permeability of free space, or inverse of bulk modulus in terms of the acoustic wave equation,
+and :math:`\epsilon(x,t) & = \rho(x,t)` is the permittivity of the material, or density in the acoustic wave equation.
+Pressure P and Velocity V are related to the electromagnetic potentials as follows :math:`\psi & = P` :math:`\phi & = V`
+This code was adapted from a 2D example, but uses only one spatial dimension
 """
 
-# state.q 0 is equivalent to psi, where psi_x = D the electric displacement field
-# state.q 1 is equivalent to phi, where phi_x = B the magnetic field
-# D and B are orthogonal components as in a polarized plane wave
-# The program graphs these main variables as outputs. We want to also be able to graph functions of these variables though
+# state.q 0 is equivalent to psi
+# state.q 1 is equivalent to phi
 # state.aux 0 is equivalent to epsilon, the permittivity
-# state.aux 1 is equivalent to the inverse of mu, the permeability
+# state.aux 1 is equivalent to the wave speed. Note that in the acoustics equation rho*C = K, the bulk modulus, which is the inverse of mu
      
 import numpy as np
 import matplotlib.pyplot as plt
 
-#here we define the size of the simulated space
+#here we define the size ax, bx, and resolution n_x of the simulated space
 ax=0.0;bx=1.0;n_x=200
-#ax=0.0;bx=1.0;n_x=5000 #higher resolution allows us to avoid non-physical resolution limit of power amplification for longer
-SpaceStepSize = (bx - ax)/n_x #note that this is only accurate for an evenly-spaced grid
+#ax=0.0;bx=1.0;n_x=5000 #higher resolution allows us to avoid non-physical resolution limit of power amplification for longer. Mesh refinement would be better.
+SpaceStepSize = (bx - ax)/n_x #note that this is only accurate for an evenly-spaced grid. For mesh refinement an alternative must be found
 ay=0.0;by=1.0;n_y=1
 #n_y is just 1 because we have a 1D system, not a 2D system, though the original code was for 2D
 
@@ -158,18 +157,20 @@ t_0=0.0;t_F=5*tau;
 
 
 
-
+#Splits regions up into checkerboard grid
 def f_u(x,y,t,u1,u2):
-    def M1(x,y):
+    def M1(x,y): #These partition the function in space
         return (u1*(np.mod(x,eps)<m*eps) + u2*(np.mod(x,eps)>=m*eps));
     def M2(x,y):
         return (u2*(np.mod(x,eps)<m*eps) + u1*(np.mod(x,eps)>=m*eps));
-    return (M1(x,y)*(np.mod(t,tau)<=n*tau)+M2(x,y)*(np.mod(t,tau)>n*tau))
+    return (M1(x,y)*(np.mod(t,tau)<=n*tau)+M2(x,y)*(np.mod(t,tau)>n*tau)) #These partition the function in time
 
+#Makes a linear interpolation between consecutive points and returns the interpolation value at xi
 def l(xi,xi1,xi2,y1,y2):
     m=(y2-y1)/(xi2-xi1);
     return y1+m*(xi-xi1)
     
+#makes a 2d flat planar interpolation and returns the value at some point on the plane
 def p(xi,eta,xi1,xi2,eta1,eta2,y1,y2):
     mz=(y2 - y1 )/(xi2 -xi1 );
     mt=(y2 - y1 )/(eta2-eta1);
@@ -181,49 +182,39 @@ def py(x,z1,z2,t,t1,t2,u1,u2):
     
 
 
-
-
 Wx=alpha;Wt=beta;
-
 m1=m;n1=n;    
 
 
 
-
-
-def f_bump(z,z1,z2):
-    def f4(z,z1,z2):
-        return (z-z1)**2*(z-z2)**2
-    #return f4(z,z1,z2)/f4((z1+z2)/2,z1,z2)*(z1<z)*(z<z2) #orignal starts with large energy, so we reduce amplitude
-    return (f4(z,z1,z2)/f4((z1+z2)/2,z1,z2)*(z1<z)*(z<z2))
-
-#def total_energy():#should take an array of wave values at the current and/or previous time steps to calculate total energy, outputting that value to be stored to an array for graphing at the end
-        #global Prevstep #This should be handled outside this function
-#        TotEnergy = 0.0;
-
-#        state.aux[0,:,:] = f_u(X,Y,state.t,rho_1,rho_2);# Density
-##        state.aux[1,:,:] = f_u(X,Y,state.t,c_1  ,c_2  ); # Sound speed       
-#        state.aux[0,:,:] = gamma/f_u(X,Y,state.t,c_1  ,c_2  ); # Matching Impedances
-        
-#        i = 0;
-#        while i < (n_x):
-#           nxt = np.mod(i+1, n_x) #We have a wraparound boundary condition so we must calculate energy around the whole loop
-           #It is worth it to store the arrays involved in numpy arrays to avoid having to loop in python
-           #Also this really ought to be a separate function that is called in do_before
-#           TotEnergy += (((state.q[0,nxt,0] - state.q[0,i,0])/SpaceStepSize)**2)/state.aux[0,i,0] + (((state.q[1,nxt,0] - state.q[1,i,0])/SpaceStepSize)**2)*state.aux[1,i,0]
-#           i += 1;
-#        state.aux[0,:,:] = f_u(X,Y,state.t,rho_1,rho_2) # Density
-#        state.aux[1,:,:] = f_u(X,Y,state.t,c_1,c_2)    # Sound speed
-        #print '{0},{1},{2}'.format(state.t, TotEnergy, n_x) #for debugging
-#        print '{0},{1}'.format(state.t, TotEnergy)
-        #Prevstep = state.q   
-
-#def total_energy_lr():#Takes an array of current and previous wave heights and outputs leftgoing and rightgoing wave energy
+#Finds the total energy of an input state
+def total_energy(state):
+    totEnergy = 0.0;
+    i = 0
+    while i < (n_x):
+        nxt = np.mod(i+1, n_x) #gets the correct next point in our space, which uses a wraparound boundary condition
+        totEnergy += (((state.q[0,nxt,0] - state.q[0,i,0])/SpaceStepSize)**2)/state.aux[0,i,0] + (((state.q[1,nxt,0] - state.q[1,i,0])/SpaceStepSize)**2)*state.aux[1,i,0]
+        i += 1;
+        print '{0},{1}'.format(state.t, totEnergy) #got rid of the other print statement for debugging purposes. Need to modify the perl postprocess accordingly       
+    return totEnergy
 
 #def fourier():#Should use numpy fourier on the wave form to graph the spectrum
 
-#def calculate_bounds(): #calculates exponential bounding term from M,N,mu and epsilon, then calculates upper and lower step bounding term from the proof we do in the paper
+#def energy_reflect(): #Calculates energy reflection at the spatial boundaries using average, weighted average, and extrapolation of the poynting vector for estimates of the poynting vector at 
 
+#def energy_t_reflect(): # Calculates energy reflection at the step before a temporal boundary, including the effect of the boundary in terms of amplification
+
+#def LimitCurve(InitialEnergy,M,N,V1,V2,T): #using initial energy, velocities and material geometry this will calculate the limit curve for energy at time T
+        #
+#    return 0
+
+
+
+#Produces the initial conditions of the wave
+def f_bump(z,z1,z2):
+    def f4(z,z1,z2):
+        return (z-z1)**2*(z-z2)**2
+    return (f4(z,z1,z2)/f4((z1+z2)/2,z1,z2)*(z1<z)*(z<z2))
 
 
 def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='./_output', 
@@ -234,7 +225,10 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
     """
     from clawpack import riemann
 
-    global Prevstep
+#    global Prevstep
+    global l_Energy
+    global r_Energy
+    global InitEnergy
 
     if use_petsc:
         import clawpack.petclaw as pyclaw
@@ -262,12 +256,13 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
     solver.aux_bc_lower[1]=pyclaw.BC.periodic
     solver.aux_bc_upper[1]=pyclaw.BC.periodic
 
+    #uses parameters initialized at the start of the code to define space size and resolution
     x = pyclaw.Dimension(ax,bx,num_cells[0],name='x')
     y = pyclaw.Dimension(ay,by,num_cells[1],name='y')
     domain = pyclaw.Domain([x,y])
 
     num_eqn = 3
-    num_aux = 2 # density, sound speed
+    num_aux = 2 # For the electromagnetic case the auxiliary variables are mu and epsilon
     state = pyclaw.State(domain,num_eqn,num_aux)
 
     grid = state.grid
@@ -284,6 +279,7 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
 ##    state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2  )    # Sound speed
 #    state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2)    # Sound speed
 
+#sets initial material properties
     state.aux[0,:,:] = f_u(X,Y,0.0,rho_1,rho_2) # Density
 #    state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2  )    # Sound speed
     state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2)    # Sound speed
@@ -291,17 +287,25 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
 
     # Set initial condition
     x0 = -0.5; y0 = 0.
-    r = np.sqrt((X-x0)**2 + (Y-y0)**2)
-    width = 0.1; rad = 0.25
-    state.q[0,:,:] = f_bump(X,.25,.75)
+    r = np.sqrt((X-x0)**2 + (Y-y0)**2) # calculates a radial distance to a specified point (x0,y0)
+    width = 0.10; rad = 0.25
+    state.q[0,:,:] = f_bump(X,0.0,0.25) # sets the initial condition along the x direction
     state.q[1,:,:] = 0.
     state.q[2,:,:] = 0.
-    Prevstep = state.q
+#    Prevstep = state.q
+    #set up left energy and right energy here inside current_data
+    InitEnergy = total_energy(state)
+    l_Energy = InitEnergy*0.5
+    r_Energy = InitEnergy*0.5
+
 
 #!!Sets Local Material Properties State, outputs current wave state to buffer, calculates current energy and outputs it to CSV with current time step for plotting
     def DoBefore(solver,state):
         #global Prevstep
+        global l_Energy #Before each time step need to calculate reflection and transmission coefficients
+        global r_Energy
         TotEnergy = 0.0;
+        #TotEnergy = total_energy(state);
 
 #        state.aux[0,:,:] = f_u(X,Y,state.t,rho_1,rho_2);# Density
 ##        state.aux[1,:,:] = f_u(X,Y,state.t,c_1  ,c_2  ); # Sound speed       
@@ -337,7 +341,7 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
     claw.solver = solver
     claw.outdir = outdir
     claw.tfinal = t_F
-    claw.num_output_times = 100
+    claw.num_output_times = 100 #sets how many graphs are produced
     claw.write_aux_init = True
     claw.write_aux=True
     claw.setplot = setplot
@@ -368,7 +372,7 @@ def setplot(plotdata):
     plotaxes.afteraxes = mark_interface
     #plotaxes.afteraxes = other_function #Can insert functions to plot this way
     plotaxes.ylimits=[ay,by]
-    plotaxes.xlimits=[ax,by] #This shouldn't work but it does
+    plotaxes.xlimits=[ax,by] #This is a hack because bx doesn't work here for some reason although they should be the same value
     #plotaxes.xlimits=[ax,bx]
 
     # Set up for item on these axes:
@@ -395,11 +399,11 @@ def setplot(plotdata):
     plotitem.pcolor_cmax=   0.3
 
 
-    plotfigure = plotdata.new_plotfigure(name='1D-Pressure', figno=3)
+    plotfigure = plotdata.new_plotfigure(name='Psi', figno=3)
 
     # Set up for axes in this figure:
     plotaxes = plotfigure.new_plotaxes()
-    plotaxes.title = 'Pressure'
+    plotaxes.title = 'Potential'
     plotaxes.scaled = True      # so aspect ratio is 1
     plotaxes.afteraxes = mark_interface
     plotaxes.ylimits = [ay,by]
@@ -431,10 +435,11 @@ def setplot(plotdata):
         plt.plot(x, ) #What is going on with this?
         plt.title('EM Potentials and Waves')
         #plt.plot(x,gamma/f_u(x,y,current_data.t,c_1,c_2),'-g')
+        #output energy, limit curve, l_Energy and r_Energy to a CSV here
     plotaxes.afteraxes = add_plot
     
     plotaxes.xlimits=[ax,bx]   
-    plotaxes.ylimits=[0.0,1.8] #should really be the max of wave amplitude, C_1 or C_2 
+    plotaxes.ylimits=[0.0,1.8] #should really be the max of wave amplitude, though that may change depending on the 
  
     # Fourier transform over time of the wave
     plotfigure = plotdata.new_plotfigure(name='Frequency Spectrum', figno=4)
