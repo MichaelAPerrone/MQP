@@ -10,7 +10,11 @@ open(my $out, '>', 'EnergyVals.csv')
     or die "Cannot open output.txt: $!";
 
 while (<$in>) {
-      print $out $_ unless /CLAW/;
+      if (index($_, "EnergyOutput ") != -1) {
+      my $line = $_;
+      $line =~ s/EnergyOutput //;
+      print $out $line;
+    }
   }
 
   close($in);
