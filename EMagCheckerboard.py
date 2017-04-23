@@ -30,8 +30,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #here we define the size ax, bx, and resolution n_x of the simulated space
-#ax=0.0;bx=1.0;n_x=200
-ax=0.0;bx=1.0;n_x=10000 #higher resolution allows us to avoid non-physical resolution limit of power amplification for longer. Mesh refinement would be better.
+ax=0.0;bx=1.0;n_x=1000
+#ax=0.0;bx=1.0;n_x=10000 #higher resolution allows us to avoid non-physical resolution limit of power amplification for longer. Mesh refinement would be better.
 SpaceStepSize = (bx - ax)/n_x #note that this is only accurate for an evenly-spaced grid. For mesh refinement an alternative must be found
 ay=0.0;by=1.0;n_y=1
 #n_y is just 1 because we have a 1D system, not a 2D system, though the original code was for 2D
@@ -238,7 +238,7 @@ def energy_reflect(state):
     nxt = np.mod(i+1, n_x)
     #Temporal interface from spatial laminate 1 to 2
     if ((np.mod(state.t,tau)<=n*tau) and (np.mod((state.t + SpaceStepSize*TimeToSpaceRatio),tau)>n*tau)) or ((np.mod(state.t,tau)>n*tau) and (np.mod((state.t + SpaceStepSize*TimeToSpaceRatio),tau)<=n*tau)):
-        while i < (n_x): 
+        while (i < n_x): 
             if (state.aux[0,i,0] != state.aux[0,nxt,0]):
                 #do averaging over spatial interface, then use that flux in the temporal switching calculation, with leftgoing and rightgoing fluxes partitioned into separate materials accordingly when doing the calculation
                 flux = (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
@@ -266,15 +266,15 @@ def energy_reflect(state):
                 else: #Material 2 to 1 at interface
                         fluxlr[0] += flux*temporal_reflect*temporal_multiple_ba - (temporal_multiple_ba - 1.0)*flux*(flux < 0)
                         fluxlr[1] += (-1.0)*flux*temporal_reflect*temporal_multiple_ba + (temporal_multiple_ba - 1.0)*flux*(flux >= 0)
-        i += 1
+            i += 1
     #when not at a temporal interface, we just calculate energy exchanged at boundaries
     else:
         #we want the average of the fluxes on the two sides of the interfaces, not just the flux alone              
-        while i < (n_x):
-            print 'got to position 1' 
-            print 'i is {0}'.format(i)
+        while (i < n_x):
+#            print 'got to position 1' 
+#            print 'i is {0}'.format(i)
             if state.aux[0,i,0] != state.aux[0,nxt,0]:
-                print 'got to position 2'
+#                print 'got to position 2'
                 #calculate flux
                 flux = (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
                 flux += (((state.q[0,nxt+1,0] - state.q[0,nxt,0])*(state.q[1,nxt+1,0] - state.q[1,nxt,0]))/(SpaceStepSize**2))*(state.aux[1,nxt,0]**2)
@@ -283,13 +283,13 @@ def energy_reflect(state):
                 if (state.aux[0,i,0] == rho_1): #Material 1 to 2 at interface
                     fluxlr[0] += flux*spatial_reflect_ab #note that a negative flux will still be added and subtracted correctly
                     fluxlr[1] -= flux*spatial_reflect_ab
-                    print 'got to position 3'
+#                    print 'got to position 3'
                 else:
                     fluxlr[0] += flux*spatial_reflect_ba
                     fluxlr[1] -= flux*spatial_reflect_ba
-                    print 'got to position 4'
-        print 'i is {0}'.format(i)
-        i += 1
+#                    print 'got to position 4'
+#            print 'i is {0}'.format(i)
+            i += 1
 #This is not quite correct: reflected energy must be subtracted from the group it was originally in, while transmitted energy is added, and then reflected energy should be added to the other group
 
 #    def M1(x,y): #These partition the function in space
@@ -414,8 +414,11 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
 #    Prevstep = state.q
     #set up left energy and right energy here inside current_data
     InitEnergy = total_energy(state)
+    print '{0}'.format(InitEnergy)
     l_Energy = InitEnergy*0.5
+    print '{0}'.format(l_Energy)
     r_Energy = InitEnergy*0.5
+    print '{0}'.format(r_Energy)
 
 #!!Sets Local Material Properties State, outputs current wave state to buffer, calculates current energy and outputs it to CSV with current time step for plotting
     def DoBefore(solver,state):
@@ -423,6 +426,7 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
         global r_Energy # 
         #TotEnergy = total_energy(state)
         flux = energy_reflect(state)
+        print '{0},{1}'.format(flux[0],flux[1])
         l_Energy += flux[0] #This is not quite correct: reflected energy must be subtracted from the group it was originally in, while transmitted energy is added, and then reflected energy should be added to the other group
         r_Energy += flux[1]
         

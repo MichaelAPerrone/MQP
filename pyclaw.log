@@ -1,2 +1,12 @@
-2017-04-23 15:36:16,697 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.0
-2017-04-23 15:36:16,697 pyclaw.controller INFO CLAW: 419 - Solution 0 computed for time t=0.000000
+2017-04-23 16:24:14,044 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.0
+2017-04-23 16:24:14,044 pyclaw.controller INFO CLAW: 419 - Solution 0 computed for time t=0.000000
+2017-04-23 16:24:14,242 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.02
+2017-04-23 16:24:14,242 pyclaw.controller INFO CLAW: 419 - Solution 1 computed for time t=0.020000
+2017-04-23 16:24:14,431 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.04
+2017-04-23 16:24:14,431 pyclaw.controller INFO CLAW: 419 - Solution 2 computed for time t=0.040000
+2017-04-23 16:24:14,621 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.06
+2017-04-23 16:24:14,621 pyclaw.controller INFO CLAW: 419 - Solution 3 computed for time t=0.060000
+2017-04-23 16:24:14,809 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.08
+2017-04-23 16:24:14,809 pyclaw.controller INFO CLAW: 419 - Solution 4 computed for time t=0.080000
+2017-04-23 16:24:14,997 pyclaw.io INFO CLAW: 301 - Wrote out solution in format ascii for time t=0.1
+2017-04-23 16:24:14,997 pyclaw.controller INFO CLAW: 419 - Solution 5 computed for time t=0.100000
