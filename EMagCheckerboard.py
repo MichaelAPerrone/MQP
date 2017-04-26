@@ -40,7 +40,12 @@ ay=0.0;by=1.0;n_y=1
 #set this variable to pick which material properties we have
 #Need to experiment further here with mu, epsilon, M and N, wave speed and wave impedance to get a better sense for the space and help us improve our lower bounding when considering convergence rate.
 
-MaterialParams == 1#The original code this is derived from was for sound waves, so these variables are in terms of rho and gamma, but these translate to mu and epsilon fairly easily for the equivalent 1+1D electromagnetic wave equations.
+MaterialParams = 1#The original code this is derived from was for sound waves, so these variables are in terms of rho and gamma, but these translate to mu and epsilon fairly easily for the equivalent 1+1D electromagnetic wave equations.
+
+#Trying to make a command line parser so that material properties can be definedfor subsequent runs and the whole thing can be automated in the command line
+#for arg in args
+#    if "MP=" in arg:
+#        MaterialParams = int(filter(str.isdigit, arg))
 
 if MaterialParams == 1:
     #print('default with slight reflection\n') #This is known to work with the code that exists
