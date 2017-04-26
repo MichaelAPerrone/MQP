@@ -1,3 +1,6 @@
+virtualenv
+clawpack==5.4
+gfortran
 numpy
 matplotlib
-clawpack
+perl==5.22.2

@@ -8,4 +8,5 @@ clean :
 	rm -rf _output
 	rm -rf _plots
 	rm -f output.csv
+	rm -f LimitCurve.csv
 	rm -f EnergyVals.csv
