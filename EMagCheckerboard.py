@@ -28,6 +28,7 @@ This code was adapted from a 2D example, but uses only one spatial dimension
      
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 #here we define the size ax, bx, and resolution n_x of the simulated space
 #ax=0.0;bx=1.0;n_x=1000
@@ -253,10 +254,10 @@ def energy_lr(state):
         else:
             net_flux += (((state.q[0,i,0] - state.q[0,nxt,0])*(state.q[1,i,0] - state.q[1,nxt,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
         i += 1
-
+#l and r energy should add to total energy and have a difference equal to net flux
     #Leftgoing and rightgoing energy are total energy +- the net flux
-    r_Energy = energy + net_flux
-    l_Energy = energy - net_flux
+    r_Energy = 0.5*energy + net_flux
+    l_Energy = 0.5*energy - net_flux
     energy_lr = [energy, l_Energy, r_Energy]
     return energy_lr
 
@@ -553,12 +554,12 @@ def setplot(plotdata):#maybe it is possible to add state here and use it instead
         print 'EnergyOutput {0},{1},{2},{3},{4}'.format(current_data.t, Energy[0], Energy[1], Energy[2], (Energy[1]+Energy[2]) )
 
       #Currently this limit curve code must be adjusted whenever we change
-      #the number of X points. Currently it should work for 20000 points
-        if current_data.t == 1.475:
+      #the number of X points. Magic programming numbers are awful. Currently it should work for 20000 points.
+        if current_data.t == 1.5:
             time = 0.0
             while time <= 2.5:
                 print 'LimitCurve {0}'.format(LimitCurve(Energy[0],time,current_data.t))
-                time += 0.0125
+                time += 0.025
        
     plotaxes.afteraxes = add_plot #Allows us to plot additional functions of current_data
     plotaxes.xlimits=[ax,bx]   
@@ -600,8 +601,8 @@ def mark_interface(current_data):
     import matplotlib.pyplot as plt
     plt.plot((0.,0.),(-1.,1.),'-k',linewidth=2)
 
-
+start_time = time.time()#So that we can time code execution when making optimizations
 if __name__=="__main__":
     from clawpack.pyclaw.util import run_app_from_main
     output = run_app_from_main(setup,setplot)
-    #so the way setplot gets called when the program runs is determined in run_app_from_main
+    print("--- %s seconds ---" % (time.time() - start_time))
