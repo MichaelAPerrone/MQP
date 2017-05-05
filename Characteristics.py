@@ -10,7 +10,8 @@ from mpl_toolkits.mplot3d import Axes3D
 #from mayavi import mlab
 
 #Set the material phase velocities in materials 1 and 2
-a1=.55;a2=1.1; 
+#a1=.55;a2=1.1; 
+a1=1.0;a2=0.7; 
 
 #Set the checkerboard geometrical paramaters
 tau=1.0;n1=.5;
@@ -353,12 +354,13 @@ gr=(0.863,0.863,0.863)
 plt.pcolormesh(X,T,f_u(X,T,a1,a2),cmap=MyCmap)
 plt.colorbar()
 
-n_Contours=20;
+n_Contours=40;
 
 #plt.contour(X,T,f_u(X,T,a1,a2),contours=n_Contours,colors='k')
 
 
-plt.xlim([0.0,1.0*eps+m1*eps])
+plt.xlim([0.0,1.0*eps])
+#plt.xlim([0.0,1.0*eps+m1*eps])
 plt.ylim([0.0,1.0*tau])
 
 
@@ -380,6 +382,43 @@ plt.plot(np.rot90(X_c),np.rot90(T_c),'k-',linewidth=2.0,color=gr);
 plt.savefig("Checkerboard.png",dpi=1000)
 
 plt.clf()
+########## Figure-2 ################# 
+
+plt.figure(2)
+gr=(0.863,0.863,0.863)
+
+plt.pcolormesh(X,T,f_u(X,T,a1,a2),cmap=MyCmap)
+plt.colorbar()
+
+n_Contours=40;
+
+#plt.contour(X,T,f_u(X,T,a1,a2),contours=n_Contours,colors='k')
+
+
+plt.xlim([1.0*eps,2.0*eps])
+#plt.xlim([0.0,1.0*eps+m1*eps])
+plt.ylim([1.0*tau,2.0*tau])
+
+
+plt.title('Characteristics for '+r'$\delta =$'+str(eps) +  \
+	  r', $\tau =$' + str(tau) + ', $m$ =' + str(m1) + ', $n$=' +str(n1) +\
+	  r', $\alpha_1=$'   + str(a1)  + r', $\alpha_2$=' + str(a2)+", \n"+
+	   r'$p$='+str(alpha)+r', $q=$'+str(beta)+r',    $dt=$'+str(dt))
+
+plt.ylabel('$t\in$['+str(p_T0)+r'$\tau, $'    +str(p_Tf)+r'$\tau$]')
+plt.xlabel('$z\in$['+str(p_a )+r'$\epsilon, $'+str(p_b) +r'$\epsilon$]')
+
+frame1=plt.gca()
+
+frame1.axes.get_xaxis().set_ticks([])
+frame1.axes.get_yaxis().set_ticks([])
+
+plt.plot(np.rot90(X_c),np.rot90(T_c),'k-',linewidth=2.0,color=gr);
+
+plt.savefig("Checkerboard2.png",dpi=1000)
+
+plt.clf()
+#Added to plot second family
 
 plt.figure(3)
 

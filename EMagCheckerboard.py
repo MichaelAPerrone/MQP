@@ -31,7 +31,7 @@ import matplotlib.pyplot as plt
 import time
 
 #here we define the size ax, bx, and resolution n_x of the simulated space
-#ax=0.0;bx=1.0;n_x=1000
+#ax=0.0;bx=1.0;n_x=2000
 ax=0.0;bx=1.0;n_x=20000 #higher resolution allows us to avoid non-physical resolution limit of power amplification for longer. Mesh refinement would be better.
 SpaceStepSize = (bx - ax)/n_x #note that this is only accurate for an evenly-spaced grid. For mesh refinement an alternative must be found
 ay=0.0;by=1.0;n_y=1
@@ -50,9 +50,10 @@ MaterialParams = 1#The original code this is derived from was for sound waves, s
 
 if MaterialParams == 1:
     #print('default with slight reflection\n') #This is known to work with the code that exists
-    gamma=1.0;
+    gamma=1.0;#Gamma here is not impedance for the electromagnetic case, but inverse impedance
     gamma_1=gamma;
-    gamma_2=gamma+.2*gamma;
+#    gamma_2=gamma;
+    gamma_2=gamma + 0.4*gamma;
     c_1 = .6    # Sound speed (left)
     c_2 = 1.1  # Sound speed (right)
     bulk_1A = gamma_1*c_1  # Bulk modulus in left half
@@ -160,7 +161,7 @@ eps=0.5;tau=0.5;m=.5;n=.5;
 
 alpha=.00001;beta= .00001;
 
-timeInterfaceNum = 5;
+timeInterfaceNum = 3;
 t_0=0.0;t_F=timeInterfaceNum*tau;
 
 
@@ -205,6 +206,7 @@ def total_energy(state):
 #Energy is [((P_x)^2)/(1/rho) + ((V_x)^2)*K]/2 and K = rho*C so we may need to change the second term
 #This energy term seems correct when considering the mathematical model of energy
         totEnergy += 0.5*((((state.q[0,nxt,0] - state.q[0,i,0])/SpaceStepSize)**2)/state.aux[0,i,0] + (((state.q[1,nxt,0] - state.q[1,i,0])/SpaceStepSize)**2)*(state.aux[1,i,0]**2)*state.aux[0,i,0])
+#The above is incorrect because we have to multiply by SpaceStepSize according to the definition of the riemann sum, therefore canceling out half of the squared SpaceStepSize associated with the derivatives
         i += 1;
 #need to update this function with numpy arrays later possibly. Or generally make it more efficient
 #Try finding a pointer to these arrays instead of using indirection [0,i,0], get the vector before the while loop
@@ -236,28 +238,80 @@ TimeToSpaceRatio = 0.8 #May need to be adjusted for various mesh sizes to get th
 #This uses current_data in this code implementation. It calculates the leftgoing and rightgoing energy as a difference between the total energy and the net energy fluxes in space.
 #For now, across the spatial boundaries it just averages the flux through the nearest volume elements.
 #It may be more correct at boundaries to multiply by the transmission coeficcient or equivalently subtract the reflection coeficcient from the net flux at that location.
-def energy_lr(state):
+def energy_lr(state,rho_1,rho_2,c_1,c_2):
     net_flux = 0.0
     energy = 0.0
-    i = 0
-    while i < (n_x):
-        nxt = np.mod(i+1, n_x)
-        
+#    i = 0
+#    nxt = np.mod(i+1, n_x)
+    
+    #sets up indices with wraparound 
+    index = np.array(range(n_x))
+    index_plus_one = index+1
+    index_plus_one[n_x-1] = 0
+
+    x = state.x;
+    y = state.y;
+    RR = f_u(x,y,state.t,rho_1,rho_2)
+    CC = f_u(x,y,state.t,c_1,c_2)
+#    print np.shape(x)
+#    print np.shape(CC)
+#    print np.shape(RR)
+ 
+
+    #Uses python vectors to take the riemann sum of energy 
+
+#This might have reversed state.q
+#    energy_vector = (0.5/SpaceStepSize**2)*((state.q[1,index_plus_one,0] - state.q[1,index,0])**2/RR[index,0] + (state.q[0,index_plus_one,0] - state.q[0,index,0])**2*(CC[index,0])**2*RR[index,0])
+
+    energy_vector = (0.5/SpaceStepSize**2)*((state.q[0,index_plus_one,0] - state.q[0,index,0])**2/RR[index,0] + (state.q[1,index_plus_one,0] - state.q[1,index,0])**2*(CC[index,0])**2*RR[index,0])
+    energy = SpaceStepSize*sum(energy_vector) #takes a riemann sum
+#    energy = 1.0 
+    #This approximates net flux but does little to properly handle boundaries
+    flux_vector = ((((state.q[0,index,0] - state.q[0,index_plus_one,0])*(state.q[1,index,0] - state.q[1,index_plus_one,0]))/(SpaceStepSize**2))*(CC[index,0]**2))
+#Corrects for error in flux measurement at the boundaries
+#    flux_vector += (RR[index,0] != RR[index_plus_one,0])*0.5*1.4*((((state.q[0,index,0] - state.q[0,index_plus_one,0])*(state.q[1,index,0] - state.q[1,index_plus_one,0]))/(SpaceStepSize**2))*(CC[index,0]**2))
+#
+#    flux_vector = (((state.q[0,index,0] - state.q[0,index_plus_one,0])*(state.q[1,index,0] - state.q[1,index_plus_one,0]))/(SpaceStepSize))*(state.aux[1,index,0]**2)
+    net_flux = SpaceStepSize*sum(flux_vector)#Takes a riemann sum
+
+#Note that the units of poynting vector differ from the units of energy by a factor of c
+    r_Energy_vector = 0.5*(energy_vector[index] + flux_vector[index]/CC[index,0])
+    l_Energy_vector = 0.5*(energy_vector[index] - flux_vector[index]/CC[index,0])
+    r_Energy = SpaceStepSize*sum(r_Energy_vector)
+    l_Energy = SpaceStepSize*sum(l_Energy_vector)
+#    i=0
+#    while (i<n_x):    
+#        print '{0},{1}'.format(flux_vector[i], i)
+#        i+=1 
+#    print '999, {0},{1},{2},{3}'.format(state.q[0,999,0],state.q[1,999,0],state.aux[0,999,0],state.aux[1,999,0])
+#    print '1000, {0},{1},{2},{3}'.format(state.q[0,1000,0],state.q[1,1000,0],state.aux[0,1000,0],state.aux[1,1000,0])
+#    print '998, {0},{1},{2},{3}'.format(state.q[0,998,0],state.q[1,998,0],state.aux[0,998,0],state.aux[1,998,0])
+#    print '1999, {0},{1},{2},{3}'.format(state.q[0,1999,0],state.q[1,1999,0],state.aux[0,1999,0],state.aux[1,1999,0])
+#    print '1998, {0},{1},{2},{3}'.format(state.q[0,1998,0],state.q[1,1998,0],state.aux[0,1998,0],state.aux[1,1998,0])
+#    print '0, {0},{1},{2},{3}'.format(state.q[0,0,0],state.q[1,0,0],state.aux[0,0,0],state.aux[1,0,0])
+#Compare derivatives next
+    
+    #net_flux = (0.5/SpaceStepSize) * sum(flux_vector)
+
+#    net_flux = 0.5
+
+#    while i < (n_x):
+#        nxt = np.mod(i+1, n_x)        
         #calculate energy integral
-        energy += 0.5*((((state.q[0,nxt,0] - state.q[0,i,0])/SpaceStepSize)**2)/state.aux[0,i,0] + (((state.q[1,nxt,0] - state.q[1,i,0])/SpaceStepSize)**2)*(state.aux[1,i,0]**2)*state.aux[0,i,0])
+#        energy += (0.5/SpaceStepSize)*(((state.q[0,nxt,0] - state.q[0,i,0])**2)/state.aux[0,i,0] + ((state.q[1,nxt,0] - state.q[1,i,0])**2)*(state.aux[1,i,0]**2)*state.aux[0,i,0])
 #
         #Calculate total net flux at current time step
-        if state.aux[0,i,0] != state.aux[0,nxt,0]:
-            net_flux += 0.5*(
-            (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
-            + (((state.q[0,nxt+1,0] - state.q[0,nxt,0])*(state.q[1,nxt+1,0] - state.q[1,nxt,0]))/(SpaceStepSize**2))*(state.aux[1,nxt,0]**2))
-        else:
-            net_flux += (((state.q[0,i,0] - state.q[0,nxt,0])*(state.q[1,i,0] - state.q[1,nxt,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
-        i += 1
+#        if state.aux[0,i,0] != state.aux[0,nxt,0]:
+#            net_flux += 0.5*(
+#            (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize))*(state.aux[1,i,0]**2)
+#            + (((state.q[0,nxt+1,0] - state.q[0,nxt,0])*(state.q[1,nxt+1,0] - state.q[1,nxt,0]))/(SpaceStepSize))*(state.aux[1,nxt,0]**2))
+#        else:
+#            net_flux += (((state.q[0,i,0] - state.q[0,nxt,0])*(state.q[1,i,0] - state.q[1,nxt,0]))/(SpaceStepSize))*(state.aux[1,i,0]**2)
+#        i += 1
 #l and r energy should add to total energy and have a difference equal to net flux
-    #Leftgoing and rightgoing energy are total energy +- the net flux
-    r_Energy = 0.5*energy + net_flux
-    l_Energy = 0.5*energy - net_flux
+    #Leftgoing and rightgoing energy absolute values add to energy, and difference adds to flux
+#    r_Energy = 0.5*energy + net_flux
+#    l_Energy = 0.5*energy - net_flux
     energy_lr = [energy, l_Energy, r_Energy]
     return energy_lr
 
@@ -339,12 +393,11 @@ def LimitCurve(Energy,T,T_0): #using initial energy, velocities and material geo
 
 
 
-#Produces the initial conditions of the wave
+#Produces symmetric initial conditions of the wave
 def f_bump(z,z1,z2):
     def f4(z,z1,z2):
         return (z-z1)**2*(z-z2)**2
     return (f4(z,z1,z2)/f4((z1+z2)/2,z1,z2)*(z1<z)*(z<z2))
-
 
 def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='./_output', 
           solver_type='classic', time_integrator='SSP104', lim_type=2, 
@@ -353,11 +406,6 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
     Example python script for solving the 2d acoustics equations.
     """
     from clawpack import riemann
-
-#    global Prevstep
-    global l_Energy
-    global r_Energy
-    global InitEnergy
 
     if use_petsc:
         import clawpack.petclaw as pyclaw
@@ -413,21 +461,33 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
 #    state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2  )    # Sound speed
     state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2)    # Sound speed
 
+    # Set asymmetric initial condition
+#    x0 = -0.5; y0 = 0.
+#    r = np.sqrt((X-x0)**2 + (Y-y0)**2) # calculates a radial distance to a specified point (x0,y0)
+#    width = 0.10; rad = 0.25
+#    state.q[0,:,:] = f_bump(X,0.0,0.4) # sets the initial condition along the x direction
+#    state.q[1,:,:] = 0.
+#    state.q[2,:,:] = 0.
 
-    # Set initial condition
-    x0 = -0.5; y0 = 0.
+    # Set symmetric initial condition
+    x0 = -0.5; y0 = 0.0
     r = np.sqrt((X-x0)**2 + (Y-y0)**2) # calculates a radial distance to a specified point (x0,y0)
     width = 0.10; rad = 0.25
-    state.q[0,:,:] = f_bump(X,0.0,0.4) # sets the initial condition along the x direction
-    state.q[1,:,:] = 0.
-    state.q[2,:,:] = 0.
+    state.q[0,:,:] = f_bump(X,0.0,0.25) # sets the initial condition along the x direction
+#for asymmetric initial condition
+    state.q[1,:,:] = f_bump(X,0.0,0.25)
+#for less asymmetric initial condition 
+#    state.q[1,:,:] = 0.5*f_bump(X,0.0,0.25)
+#for symmetric initial condition
+#    state.q[1,:,:] = 0.0
+    state.q[2,:,:] = 0.0
 #    Prevstep = state.q
     #set up left energy and right energy here inside current_data
-    InitEnergy = total_energy(state)
+   # InitEnergy = total_energy(state)
     #print '{0}'.format(InitEnergy)
-    l_Energy = InitEnergy*0.5
+   # l_Energy = InitEnergy*0.5
     #print '{0}'.format(l_Energy)
-    r_Energy = InitEnergy*0.5
+   # r_Energy = InitEnergy*0.5
     #print '{0}'.format(r_Energy)
 
 #!!Sets Local Material Properties State, outputs current wave state to buffer, calculates current energy and outputs it to CSV with current time step for plotting
@@ -439,6 +499,7 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
 #        state.aux[0,:,:] = gamma/f_u(X,Y,state.t,c_1  ,c_2  ) # Matching Impedances
         state.aux[0,:,:] = f_u(X,Y,state.t,rho_1,rho_2) # Density
         state.aux[1,:,:] = f_u(X,Y,state.t,c_1,c_2)    # Sound speed
+        #These must somehow differ from what is used to calculate energy later in add_plots
         #print '{0},{1}'.format(state.t, TotEnergy) #original output for CSV, moved to setplot so that this doesn't have to be done ten thousand times
         #Prevstep = state.q   
 
@@ -542,24 +603,24 @@ def setplot(plotdata):#maybe it is possible to add state here and use it instead
         print current_data.t
         Ones=np.ones(x.shape)
         plt.plot(x,.5*Ones, 'k')
-        #T1plt.plot(x,gamma/f_u(x,y,current_data.t,rho_1,rho_2),'-r')
+        #plt.plot(x,gamma/f_u(x,y,current_data.t,rho_1,rho_2),'-r')
         plt.plot(x,f_u(x,y,current_data.t,c_1,c_2),'-r')
-        plt.plot(x,a,'-g')
-        plt.plot(x, ) #What is going on with this?
+#        plt.plot(x,a,'-g')
+#        plt.plot(x, ) #What is going on with this?
         plt.title('EM Potentials and Waves')
         #plt.plot(x,gamma/f_u(x,y,current_data.t,c_1,c_2),'-g')
-        Energy = energy_lr(current_data)
-        energy = total_energy(current_data)
+        Energy = energy_lr(current_data,rho_1,rho_2,c_1,c_2)
+        #energy = total_energy(current_data)
         #print 'EnergyOutput {0},{1},{2},{3},{4}'.format(current_data.t, Energy[0], Energy[1], Energy[2], (Energy[1]+Energy[2]) )
-        print 'EnergyOutput {0},{1},{2},{3},{4}'.format(current_data.t, Energy[0], Energy[1], Energy[2], (Energy[1]+Energy[2]) )
+        print 'EnergyOutput {0},{1},{2},{3}'.format(current_data.t, Energy[0], Energy[1], Energy[2])
 
       #Currently this limit curve code must be adjusted whenever we change
       #the number of X points. Magic programming numbers are awful. Currently it should work for 20000 points.
-        if current_data.t == 1.5:
+        if current_data.t == 1.005:#With access to all of current_data we can in principle graph these things using clawpack instead of outputting to Excel
             time = 0.0
-            while time <= 2.5:
+            while time <= 1.5:
                 print 'LimitCurve {0}'.format(LimitCurve(Energy[0],time,current_data.t))
-                time += 0.025
+                time += (1.5/100.0)
        
     plotaxes.afteraxes = add_plot #Allows us to plot additional functions of current_data
     plotaxes.xlimits=[ax,bx]   

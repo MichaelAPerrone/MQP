@@ -1,104 +1,104 @@
-2017-04-26 06:30:39,662 INFO CLAW: Solution 0 computed for time t=0.000000
-2017-04-26 06:31:11,454 INFO CLAW: Solution 1 computed for time t=0.025000
-2017-04-26 06:31:42,352 INFO CLAW: Solution 2 computed for time t=0.050000
-2017-04-26 06:32:13,471 INFO CLAW: Solution 3 computed for time t=0.075000
-2017-04-26 06:32:47,414 INFO CLAW: Solution 4 computed for time t=0.100000
-2017-04-26 06:33:18,999 INFO CLAW: Solution 5 computed for time t=0.125000
-2017-04-26 06:33:51,496 INFO CLAW: Solution 6 computed for time t=0.150000
-2017-04-26 06:34:26,834 INFO CLAW: Solution 7 computed for time t=0.175000
-2017-04-26 06:35:01,760 INFO CLAW: Solution 8 computed for time t=0.200000
-2017-04-26 06:35:37,716 INFO CLAW: Solution 9 computed for time t=0.225000
-2017-04-26 06:36:15,122 INFO CLAW: Solution 10 computed for time t=0.250000
-2017-04-26 06:36:50,890 INFO CLAW: Solution 11 computed for time t=0.275000
-2017-04-26 06:37:26,875 INFO CLAW: Solution 12 computed for time t=0.300000
-2017-04-26 06:38:02,290 INFO CLAW: Solution 13 computed for time t=0.325000
-2017-04-26 06:38:38,391 INFO CLAW: Solution 14 computed for time t=0.350000
-2017-04-26 06:39:12,487 INFO CLAW: Solution 15 computed for time t=0.375000
-2017-04-26 06:39:45,944 INFO CLAW: Solution 16 computed for time t=0.400000
-2017-04-26 06:40:20,032 INFO CLAW: Solution 17 computed for time t=0.425000
-2017-04-26 06:40:54,047 INFO CLAW: Solution 18 computed for time t=0.450000
-2017-04-26 06:41:27,140 INFO CLAW: Solution 19 computed for time t=0.475000
-2017-04-26 06:42:01,684 INFO CLAW: Solution 20 computed for time t=0.500000
-2017-04-26 06:42:34,658 INFO CLAW: Solution 21 computed for time t=0.525000
-2017-04-26 06:43:07,880 INFO CLAW: Solution 22 computed for time t=0.550000
-2017-04-26 06:43:40,739 INFO CLAW: Solution 23 computed for time t=0.575000
-2017-04-26 06:44:13,147 INFO CLAW: Solution 24 computed for time t=0.600000
-2017-04-26 06:44:46,748 INFO CLAW: Solution 25 computed for time t=0.625000
-2017-04-26 06:45:20,144 INFO CLAW: Solution 26 computed for time t=0.650000
-2017-04-26 06:45:53,383 INFO CLAW: Solution 27 computed for time t=0.675000
-2017-04-26 06:46:25,293 INFO CLAW: Solution 28 computed for time t=0.700000
-2017-04-26 06:46:57,881 INFO CLAW: Solution 29 computed for time t=0.725000
-2017-04-26 06:47:29,444 INFO CLAW: Solution 30 computed for time t=0.750000
-2017-04-26 06:48:01,090 INFO CLAW: Solution 31 computed for time t=0.775000
-2017-04-26 06:48:33,317 INFO CLAW: Solution 32 computed for time t=0.800000
-2017-04-26 06:49:04,941 INFO CLAW: Solution 33 computed for time t=0.825000
-2017-04-26 06:49:35,992 INFO CLAW: Solution 34 computed for time t=0.850000
-2017-04-26 06:50:07,732 INFO CLAW: Solution 35 computed for time t=0.875000
-2017-04-26 06:50:39,379 INFO CLAW: Solution 36 computed for time t=0.900000
-2017-04-26 06:51:11,054 INFO CLAW: Solution 37 computed for time t=0.925000
-2017-04-26 06:51:43,271 INFO CLAW: Solution 38 computed for time t=0.950000
-2017-04-26 06:52:15,087 INFO CLAW: Solution 39 computed for time t=0.975000
-2017-04-26 06:52:46,380 INFO CLAW: Solution 40 computed for time t=1.000000
-2017-04-26 06:53:18,396 INFO CLAW: Solution 41 computed for time t=1.025000
-2017-04-26 06:53:50,556 INFO CLAW: Solution 42 computed for time t=1.050000
-2017-04-26 06:54:22,093 INFO CLAW: Solution 43 computed for time t=1.075000
-2017-04-26 06:54:53,585 INFO CLAW: Solution 44 computed for time t=1.100000
-2017-04-26 06:55:26,743 INFO CLAW: Solution 45 computed for time t=1.125000
-2017-04-26 06:55:58,771 INFO CLAW: Solution 46 computed for time t=1.150000
-2017-04-26 06:56:31,221 INFO CLAW: Solution 47 computed for time t=1.175000
-2017-04-26 06:57:03,278 INFO CLAW: Solution 48 computed for time t=1.200000
-2017-04-26 06:57:35,814 INFO CLAW: Solution 49 computed for time t=1.225000
-2017-04-26 06:58:12,528 INFO CLAW: Solution 50 computed for time t=1.250000
-2017-04-26 06:58:52,809 INFO CLAW: Solution 51 computed for time t=1.275000
-2017-04-26 06:59:33,030 INFO CLAW: Solution 52 computed for time t=1.300000
-2017-04-26 07:00:10,546 INFO CLAW: Solution 53 computed for time t=1.325000
-2017-04-26 07:00:45,804 INFO CLAW: Solution 54 computed for time t=1.350000
-2017-04-26 07:01:20,896 INFO CLAW: Solution 55 computed for time t=1.375000
-2017-04-26 07:01:58,029 INFO CLAW: Solution 56 computed for time t=1.400000
-2017-04-26 07:02:33,861 INFO CLAW: Solution 57 computed for time t=1.425000
-2017-04-26 07:03:08,276 INFO CLAW: Solution 58 computed for time t=1.450000
-2017-04-26 07:03:44,227 INFO CLAW: Solution 59 computed for time t=1.475000
-2017-04-26 07:04:19,618 INFO CLAW: Solution 60 computed for time t=1.500000
-2017-04-26 07:04:56,106 INFO CLAW: Solution 61 computed for time t=1.525000
-2017-04-26 07:05:31,178 INFO CLAW: Solution 62 computed for time t=1.550000
-2017-04-26 07:06:09,163 INFO CLAW: Solution 63 computed for time t=1.575000
-2017-04-26 07:06:45,817 INFO CLAW: Solution 64 computed for time t=1.600000
-2017-04-26 07:07:23,030 INFO CLAW: Solution 65 computed for time t=1.625000
-2017-04-26 07:08:00,054 INFO CLAW: Solution 66 computed for time t=1.650000
-2017-04-26 07:08:38,127 INFO CLAW: Solution 67 computed for time t=1.675000
-2017-04-26 07:09:15,420 INFO CLAW: Solution 68 computed for time t=1.700000
-2017-04-26 07:09:52,026 INFO CLAW: Solution 69 computed for time t=1.725000
-2017-04-26 07:10:27,877 INFO CLAW: Solution 70 computed for time t=1.750000
-2017-04-26 07:11:05,792 INFO CLAW: Solution 71 computed for time t=1.775000
-2017-04-26 07:11:42,015 INFO CLAW: Solution 72 computed for time t=1.800000
-2017-04-26 07:12:18,651 INFO CLAW: Solution 73 computed for time t=1.825000
-2017-04-26 07:12:56,709 INFO CLAW: Solution 74 computed for time t=1.850000
-2017-04-26 07:13:34,260 INFO CLAW: Solution 75 computed for time t=1.875000
-2017-04-26 07:14:12,564 INFO CLAW: Solution 76 computed for time t=1.900000
-2017-04-26 07:14:50,213 INFO CLAW: Solution 77 computed for time t=1.925000
-2017-04-26 07:15:26,311 INFO CLAW: Solution 78 computed for time t=1.950000
-2017-04-26 07:16:02,195 INFO CLAW: Solution 79 computed for time t=1.975000
-2017-04-26 07:16:37,887 INFO CLAW: Solution 80 computed for time t=2.000000
-2017-04-26 07:17:13,665 INFO CLAW: Solution 81 computed for time t=2.025000
-2017-04-26 07:17:50,053 INFO CLAW: Solution 82 computed for time t=2.050000
-2017-04-26 07:18:25,666 INFO CLAW: Solution 83 computed for time t=2.075000
-2017-04-26 07:19:01,740 INFO CLAW: Solution 84 computed for time t=2.100000
-2017-04-26 07:19:34,566 INFO CLAW: Solution 85 computed for time t=2.125000
-2017-04-26 07:20:06,696 INFO CLAW: Solution 86 computed for time t=2.150000
-2017-04-26 07:20:40,287 INFO CLAW: Solution 87 computed for time t=2.175000
-2017-04-26 07:21:14,730 INFO CLAW: Solution 88 computed for time t=2.200000
-2017-04-26 07:21:47,883 INFO CLAW: Solution 89 computed for time t=2.225000
-2017-04-26 07:22:21,305 INFO CLAW: Solution 90 computed for time t=2.250000
-2017-04-26 07:22:53,775 INFO CLAW: Solution 91 computed for time t=2.275000
-2017-04-26 07:23:28,766 INFO CLAW: Solution 92 computed for time t=2.300000
-2017-04-26 07:24:04,327 INFO CLAW: Solution 93 computed for time t=2.325000
-2017-04-26 07:24:39,704 INFO CLAW: Solution 94 computed for time t=2.350000
-2017-04-26 07:25:15,074 INFO CLAW: Solution 95 computed for time t=2.375000
-2017-04-26 07:25:50,501 INFO CLAW: Solution 96 computed for time t=2.400000
-2017-04-26 07:26:26,483 INFO CLAW: Solution 97 computed for time t=2.425000
-2017-04-26 07:27:02,653 INFO CLAW: Solution 98 computed for time t=2.450000
-2017-04-26 07:27:37,556 INFO CLAW: Solution 99 computed for time t=2.475000
-2017-04-26 07:28:15,183 INFO CLAW: Solution 100 computed for time t=2.500000
+2017-05-05 13:48:38,515 INFO CLAW: Solution 0 computed for time t=0.000000
+2017-05-05 13:48:55,379 INFO CLAW: Solution 1 computed for time t=0.015000
+2017-05-05 13:49:12,689 INFO CLAW: Solution 2 computed for time t=0.030000
+2017-05-05 13:49:29,378 INFO CLAW: Solution 3 computed for time t=0.045000
+2017-05-05 13:49:46,160 INFO CLAW: Solution 4 computed for time t=0.060000
+2017-05-05 13:50:03,016 INFO CLAW: Solution 5 computed for time t=0.075000
+2017-05-05 13:50:19,736 INFO CLAW: Solution 6 computed for time t=0.090000
+2017-05-05 13:50:36,496 INFO CLAW: Solution 7 computed for time t=0.105000
+2017-05-05 13:50:53,322 INFO CLAW: Solution 8 computed for time t=0.120000
+2017-05-05 13:51:10,228 INFO CLAW: Solution 9 computed for time t=0.135000
+2017-05-05 13:51:27,201 INFO CLAW: Solution 10 computed for time t=0.150000
+2017-05-05 13:51:44,289 INFO CLAW: Solution 11 computed for time t=0.165000
+2017-05-05 13:52:01,461 INFO CLAW: Solution 12 computed for time t=0.180000
+2017-05-05 13:52:18,859 INFO CLAW: Solution 13 computed for time t=0.195000
+2017-05-05 13:52:36,191 INFO CLAW: Solution 14 computed for time t=0.210000
+2017-05-05 13:52:53,642 INFO CLAW: Solution 15 computed for time t=0.225000
+2017-05-05 13:53:11,439 INFO CLAW: Solution 16 computed for time t=0.240000
+2017-05-05 13:53:29,614 INFO CLAW: Solution 17 computed for time t=0.255000
+2017-05-05 13:53:49,050 INFO CLAW: Solution 18 computed for time t=0.270000
+2017-05-05 13:54:07,478 INFO CLAW: Solution 19 computed for time t=0.285000
+2017-05-05 13:54:26,018 INFO CLAW: Solution 20 computed for time t=0.300000
+2017-05-05 13:54:44,748 INFO CLAW: Solution 21 computed for time t=0.315000
+2017-05-05 13:55:03,058 INFO CLAW: Solution 22 computed for time t=0.330000
+2017-05-05 13:55:20,474 INFO CLAW: Solution 23 computed for time t=0.345000
+2017-05-05 13:55:37,912 INFO CLAW: Solution 24 computed for time t=0.360000
+2017-05-05 13:55:55,300 INFO CLAW: Solution 25 computed for time t=0.375000
+2017-05-05 13:56:12,595 INFO CLAW: Solution 26 computed for time t=0.390000
+2017-05-05 13:56:29,865 INFO CLAW: Solution 27 computed for time t=0.405000
+2017-05-05 13:56:47,300 INFO CLAW: Solution 28 computed for time t=0.420000
+2017-05-05 13:57:04,644 INFO CLAW: Solution 29 computed for time t=0.435000
+2017-05-05 13:57:21,975 INFO CLAW: Solution 30 computed for time t=0.450000
+2017-05-05 13:57:39,265 INFO CLAW: Solution 31 computed for time t=0.465000
+2017-05-05 13:57:56,680 INFO CLAW: Solution 32 computed for time t=0.480000
+2017-05-05 13:58:13,952 INFO CLAW: Solution 33 computed for time t=0.495000
+2017-05-05 13:58:31,271 INFO CLAW: Solution 34 computed for time t=0.510000
+2017-05-05 13:58:48,549 INFO CLAW: Solution 35 computed for time t=0.525000
+2017-05-05 13:59:05,939 INFO CLAW: Solution 36 computed for time t=0.540000
+2017-05-05 13:59:24,611 INFO CLAW: Solution 37 computed for time t=0.555000
+2017-05-05 13:59:41,848 INFO CLAW: Solution 38 computed for time t=0.570000
+2017-05-05 13:59:59,057 INFO CLAW: Solution 39 computed for time t=0.585000
+2017-05-05 14:00:16,240 INFO CLAW: Solution 40 computed for time t=0.600000
+2017-05-05 14:00:33,447 INFO CLAW: Solution 41 computed for time t=0.615000
+2017-05-05 14:00:50,582 INFO CLAW: Solution 42 computed for time t=0.630000
+2017-05-05 14:01:07,718 INFO CLAW: Solution 43 computed for time t=0.645000
+2017-05-05 14:01:24,945 INFO CLAW: Solution 44 computed for time t=0.660000
+2017-05-05 14:01:42,126 INFO CLAW: Solution 45 computed for time t=0.675000
+2017-05-05 14:01:59,246 INFO CLAW: Solution 46 computed for time t=0.690000
+2017-05-05 14:02:16,454 INFO CLAW: Solution 47 computed for time t=0.705000
+2017-05-05 14:02:33,662 INFO CLAW: Solution 48 computed for time t=0.720000
+2017-05-05 14:02:50,885 INFO CLAW: Solution 49 computed for time t=0.735000
+2017-05-05 14:03:08,033 INFO CLAW: Solution 50 computed for time t=0.750000
+2017-05-05 14:03:25,144 INFO CLAW: Solution 51 computed for time t=0.765000
+2017-05-05 14:03:42,328 INFO CLAW: Solution 52 computed for time t=0.780000
+2017-05-05 14:03:59,474 INFO CLAW: Solution 53 computed for time t=0.795000
+2017-05-05 14:04:16,603 INFO CLAW: Solution 54 computed for time t=0.810000
+2017-05-05 14:04:33,906 INFO CLAW: Solution 55 computed for time t=0.825000
+2017-05-05 14:04:51,111 INFO CLAW: Solution 56 computed for time t=0.840000
+2017-05-05 14:05:08,343 INFO CLAW: Solution 57 computed for time t=0.855000
+2017-05-05 14:05:25,526 INFO CLAW: Solution 58 computed for time t=0.870000
+2017-05-05 14:05:42,695 INFO CLAW: Solution 59 computed for time t=0.885000
+2017-05-05 14:05:59,885 INFO CLAW: Solution 60 computed for time t=0.900000
+2017-05-05 14:06:17,101 INFO CLAW: Solution 61 computed for time t=0.915000
+2017-05-05 14:06:34,305 INFO CLAW: Solution 62 computed for time t=0.930000
+2017-05-05 14:06:51,528 INFO CLAW: Solution 63 computed for time t=0.945000
+2017-05-05 14:07:09,025 INFO CLAW: Solution 64 computed for time t=0.960000
+2017-05-05 14:07:26,303 INFO CLAW: Solution 65 computed for time t=0.975000
+2017-05-05 14:07:43,603 INFO CLAW: Solution 66 computed for time t=0.990000
+2017-05-05 14:08:00,761 INFO CLAW: Solution 67 computed for time t=1.005000
+2017-05-05 14:08:17,978 INFO CLAW: Solution 68 computed for time t=1.020000
+2017-05-05 14:08:35,195 INFO CLAW: Solution 69 computed for time t=1.035000
+2017-05-05 14:08:52,351 INFO CLAW: Solution 70 computed for time t=1.050000
+2017-05-05 14:09:09,487 INFO CLAW: Solution 71 computed for time t=1.065000
+2017-05-05 14:09:26,696 INFO CLAW: Solution 72 computed for time t=1.080000
+2017-05-05 14:09:43,879 INFO CLAW: Solution 73 computed for time t=1.095000
+2017-05-05 14:10:01,039 INFO CLAW: Solution 74 computed for time t=1.110000
+2017-05-05 14:10:18,185 INFO CLAW: Solution 75 computed for time t=1.125000
+2017-05-05 14:10:35,366 INFO CLAW: Solution 76 computed for time t=1.140000
+2017-05-05 14:10:52,542 INFO CLAW: Solution 77 computed for time t=1.155000
+2017-05-05 14:11:09,692 INFO CLAW: Solution 78 computed for time t=1.170000
+2017-05-05 14:11:26,839 INFO CLAW: Solution 79 computed for time t=1.185000
+2017-05-05 14:11:44,179 INFO CLAW: Solution 80 computed for time t=1.200000
+2017-05-05 14:12:01,420 INFO CLAW: Solution 81 computed for time t=1.215000
+2017-05-05 14:12:19,611 INFO CLAW: Solution 82 computed for time t=1.230000
+2017-05-05 14:12:36,826 INFO CLAW: Solution 83 computed for time t=1.245000
+2017-05-05 14:12:54,111 INFO CLAW: Solution 84 computed for time t=1.260000
+2017-05-05 14:13:11,337 INFO CLAW: Solution 85 computed for time t=1.275000
+2017-05-05 14:13:28,476 INFO CLAW: Solution 86 computed for time t=1.290000
+2017-05-05 14:13:45,745 INFO CLAW: Solution 87 computed for time t=1.305000
+2017-05-05 14:14:02,963 INFO CLAW: Solution 88 computed for time t=1.320000
+2017-05-05 14:14:20,206 INFO CLAW: Solution 89 computed for time t=1.335000
+2017-05-05 14:14:37,441 INFO CLAW: Solution 90 computed for time t=1.350000
+2017-05-05 14:14:54,745 INFO CLAW: Solution 91 computed for time t=1.365000
+2017-05-05 14:15:12,009 INFO CLAW: Solution 92 computed for time t=1.380000
+2017-05-05 14:15:29,308 INFO CLAW: Solution 93 computed for time t=1.395000
+2017-05-05 14:15:46,604 INFO CLAW: Solution 94 computed for time t=1.410000
+2017-05-05 14:16:03,826 INFO CLAW: Solution 95 computed for time t=1.425000
+2017-05-05 14:16:20,975 INFO CLAW: Solution 96 computed for time t=1.440000
+2017-05-05 14:16:38,151 INFO CLAW: Solution 97 computed for time t=1.455000
+2017-05-05 14:16:55,326 INFO CLAW: Solution 98 computed for time t=1.470000
+2017-05-05 14:17:12,786 INFO CLAW: Solution 99 computed for time t=1.485000
+2017-05-05 14:17:30,697 INFO CLAW: Solution 100 computed for time t=1.500000
 Executed setplot successfully
 Will plot 101 frames numbered: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
 Will make 1 figure(s) for each frame, numbered:  [0]
@@ -113,509 +113,509 @@ Directory '/home/maperrone/MQP/MQP/_plots'
 Now making png files for all figures...
     Reading  Frame 0 at t = 0  from outdir = /home/maperrone/MQP/MQP/_output
 0.0
-EnergyOutput 0.0,91220.004386,45610.002193,45610.002193,91220.004386
+EnergyOutput 0.0,11.7028555055,1.60849623811e-11,11.7028555055
 Frame 0 at time t = 0.0
-    Reading  Frame 1 at t = 0.025  from outdir = /home/maperrone/MQP/MQP/_output
-0.025
-EnergyOutput 0.025,91218.8035438,42643.7008504,48575.1026934,91218.8035438
-Frame 1 at time t = 0.025
-    Reading  Frame 2 at t = 0.05  from outdir = /home/maperrone/MQP/MQP/_output
-0.05
-EnergyOutput 0.05,91218.3472602,39000.9239942,52217.423266,91218.3472602
-Frame 2 at time t = 0.05
-    Reading  Frame 3 at t = 0.075  from outdir = /home/maperrone/MQP/MQP/_output
+    Reading  Frame 1 at t = 0.015  from outdir = /home/maperrone/MQP/MQP/_output
+0.015
+EnergyOutput 0.015,11.7028018984,0.000896982383432,11.7019049161
+Frame 1 at time t = 0.015
+    Reading  Frame 2 at t = 0.03  from outdir = /home/maperrone/MQP/MQP/_output
+0.03
+EnergyOutput 0.03,11.7026865145,0.0060564569023,11.6966300576
+Frame 2 at time t = 0.03
+    Reading  Frame 3 at t = 0.045  from outdir = /home/maperrone/MQP/MQP/_output
+0.045
+EnergyOutput 0.045,11.7025609715,0.0171147024006,11.6854462691
+Frame 3 at time t = 0.045
+    Reading  Frame 4 at t = 0.06  from outdir = /home/maperrone/MQP/MQP/_output
+0.06
+EnergyOutput 0.06,11.7024579822,0.0337168695891,11.6687411126
+Frame 4 at time t = 0.06
+    Reading  Frame 5 at t = 0.075  from outdir = /home/maperrone/MQP/MQP/_output
 0.075
-EnergyOutput 0.075,91218.7944318,35634.7032709,55584.0911608,91218.7944318
-Frame 3 at time t = 0.075
-    Reading  Frame 4 at t = 0.1  from outdir = /home/maperrone/MQP/MQP/_output
-0.1
-EnergyOutput 0.1,91221.0341386,33726.2682893,57494.7658493,91221.0341386
-Frame 4 at time t = 0.1
-    Reading  Frame 5 at t = 0.125  from outdir = /home/maperrone/MQP/MQP/_output
-0.125
-EnergyOutput 0.125,91229.3140476,34865.3612674,56363.9527802,91229.3140476
-Frame 5 at time t = 0.125
-    Reading  Frame 6 at t = 0.15  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.075,11.7023951553,0.05432147249,11.6480736829
+Frame 5 at time t = 0.075
+    Reading  Frame 6 at t = 0.09  from outdir = /home/maperrone/MQP/MQP/_output
+0.09
+EnergyOutput 0.09,11.7023783735,0.0768370902633,11.6255412832
+Frame 6 at time t = 0.09
+    Reading  Frame 7 at t = 0.105  from outdir = /home/maperrone/MQP/MQP/_output
+0.105
+EnergyOutput 0.105,11.7024048643,0.0991067033246,11.603298161
+Frame 7 at time t = 0.105
+    Reading  Frame 8 at t = 0.12  from outdir = /home/maperrone/MQP/MQP/_output
+0.12
+EnergyOutput 0.12,11.7024659072,0.11925504207,11.5832108651
+Frame 8 at time t = 0.12
+    Reading  Frame 9 at t = 0.135  from outdir = /home/maperrone/MQP/MQP/_output
+0.135
+EnergyOutput 0.135,11.7025492179,0.135914383166,11.5666348347
+Frame 9 at time t = 0.135
+    Reading  Frame 10 at t = 0.15  from outdir = /home/maperrone/MQP/MQP/_output
 0.15
-EnergyOutput 0.15,91235.3453821,38738.5483351,52496.797047,91235.3453821
-Frame 6 at time t = 0.15
-    Reading  Frame 7 at t = 0.175  from outdir = /home/maperrone/MQP/MQP/_output
-0.175
-EnergyOutput 0.175,91236.0560016,43296.4048666,47939.6511349,91236.0560016
-Frame 7 at time t = 0.175
-    Reading  Frame 8 at t = 0.2  from outdir = /home/maperrone/MQP/MQP/_output
-0.2
-EnergyOutput 0.2,91232.2895852,47118.2538418,44114.0357434,91232.2895852
-Frame 8 at time t = 0.2
-    Reading  Frame 9 at t = 0.225  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.15,11.7026410482,0.148344182657,11.5542968656
+Frame 10 at time t = 0.15
+    Reading  Frame 11 at t = 0.165  from outdir = /home/maperrone/MQP/MQP/_output
+0.165
+EnergyOutput 0.165,11.7027278884,0.156459971977,11.5462679164
+Frame 11 at time t = 0.165
+    Reading  Frame 12 at t = 0.18  from outdir = /home/maperrone/MQP/MQP/_output
+0.18
+EnergyOutput 0.18,11.7027978906,0.160786897735,11.5420109929
+Frame 12 at time t = 0.18
+    Reading  Frame 13 at t = 0.195  from outdir = /home/maperrone/MQP/MQP/_output
+0.195
+EnergyOutput 0.195,11.7028419902,0.162353328134,11.5404886621
+Frame 13 at time t = 0.195
+    Reading  Frame 14 at t = 0.21  from outdir = /home/maperrone/MQP/MQP/_output
+0.21
+EnergyOutput 0.21,11.7028546392,0.162539947101,11.5403146921
+Frame 14 at time t = 0.21
+    Reading  Frame 15 at t = 0.225  from outdir = /home/maperrone/MQP/MQP/_output
 0.225
-EnergyOutput 0.225,91226.5013759,49279.5920897,41946.9092862,91226.5013759
-Frame 9 at time t = 0.225
-    Reading  Frame 10 at t = 0.25  from outdir = /home/maperrone/MQP/MQP/_output
-0.25
-EnergyOutput 0.25,91221.4789493,49337.9739988,41883.5049505,91221.4789493
-Frame 10 at time t = 0.25
-    Reading  Frame 11 at t = 0.275  from outdir = /home/maperrone/MQP/MQP/_output
-0.275
-EnergyOutput 0.275,107962.759499,46378.7723013,61583.9871972,107962.759499
-Frame 11 at time t = 0.275
-    Reading  Frame 12 at t = 0.3  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.225,11.7028342696,0.162899691185,11.5399345784
+Frame 15 at time t = 0.225
+    Reading  Frame 16 at t = 0.24  from outdir = /home/maperrone/MQP/MQP/_output
+0.24
+EnergyOutput 0.24,11.7029973532,0.165519263412,11.5374780898
+Frame 16 at time t = 0.24
+    Reading  Frame 17 at t = 0.255  from outdir = /home/maperrone/MQP/MQP/_output
+0.255
+EnergyOutput 0.255,14.2924766084,0.465400779657,13.8270758288
+Frame 17 at time t = 0.255
+    Reading  Frame 18 at t = 0.27  from outdir = /home/maperrone/MQP/MQP/_output
+0.27
+EnergyOutput 0.27,14.2946103575,0.525920554038,13.7686898034
+Frame 18 at time t = 0.27
+    Reading  Frame 19 at t = 0.285  from outdir = /home/maperrone/MQP/MQP/_output
+0.285
+EnergyOutput 0.285,14.2963129344,0.608950147415,13.6873627869
+Frame 19 at time t = 0.285
+    Reading  Frame 20 at t = 0.3  from outdir = /home/maperrone/MQP/MQP/_output
 0.3
-EnergyOutput 0.3,118745.589933,39768.6470839,78976.9428492,118745.589933
-Frame 12 at time t = 0.3
-    Reading  Frame 13 at t = 0.325  from outdir = /home/maperrone/MQP/MQP/_output
-0.325
-EnergyOutput 0.325,123533.389869,36592.8281886,86940.5616807,123533.389869
-Frame 13 at time t = 0.325
-    Reading  Frame 14 at t = 0.35  from outdir = /home/maperrone/MQP/MQP/_output
-0.35
-EnergyOutput 0.35,130830.071276,47660.1368052,83169.9344708,130830.071276
-Frame 14 at time t = 0.35
-    Reading  Frame 15 at t = 0.375  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.3,14.2959033721,0.699157811834,13.5967455602
+Frame 20 at time t = 0.3
+    Reading  Frame 21 at t = 0.315  from outdir = /home/maperrone/MQP/MQP/_output
+0.315
+EnergyOutput 0.315,14.2928250704,0.772269408891,13.5205556615
+Frame 21 at time t = 0.315
+    Reading  Frame 22 at t = 0.33  from outdir = /home/maperrone/MQP/MQP/_output
+0.33
+EnergyOutput 0.33,14.2884315653,0.80940480269,13.4790267626
+Frame 22 at time t = 0.33
+    Reading  Frame 23 at t = 0.345  from outdir = /home/maperrone/MQP/MQP/_output
+0.345
+EnergyOutput 0.345,14.2867375392,0.818498406821,13.4682391323
+Frame 23 at time t = 0.345
+    Reading  Frame 24 at t = 0.36  from outdir = /home/maperrone/MQP/MQP/_output
+0.36
+EnergyOutput 0.36,14.2865334872,0.824847552108,13.4616859351
+Frame 24 at time t = 0.36
+    Reading  Frame 25 at t = 0.375  from outdir = /home/maperrone/MQP/MQP/_output
 0.375
-EnergyOutput 0.375,157501.813875,94884.3749553,62617.4389192,157501.813875
-Frame 15 at time t = 0.375
-    Reading  Frame 16 at t = 0.4  from outdir = /home/maperrone/MQP/MQP/_output
-0.4
-EnergyOutput 0.4,183047.434446,138160.817041,44886.6174054,183047.434446
-Frame 16 at time t = 0.4
-    Reading  Frame 17 at t = 0.425  from outdir = /home/maperrone/MQP/MQP/_output
-0.425
-EnergyOutput 0.425,209279.978059,127713.991528,81565.9865309,209279.978059
-Frame 17 at time t = 0.425
-    Reading  Frame 18 at t = 0.45  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.375,14.2863502059,0.830323484852,13.456026721
+Frame 25 at time t = 0.375
+    Reading  Frame 26 at t = 0.39  from outdir = /home/maperrone/MQP/MQP/_output
+0.39
+EnergyOutput 0.39,14.2862166199,0.835038716715,13.4511779032
+Frame 26 at time t = 0.39
+    Reading  Frame 27 at t = 0.405  from outdir = /home/maperrone/MQP/MQP/_output
+0.405
+EnergyOutput 0.405,14.2861226825,0.840750461398,13.4453722211
+Frame 27 at time t = 0.405
+    Reading  Frame 28 at t = 0.42  from outdir = /home/maperrone/MQP/MQP/_output
+0.42
+EnergyOutput 0.42,14.2860102326,0.846693384241,13.4393168483
+Frame 28 at time t = 0.42
+    Reading  Frame 29 at t = 0.435  from outdir = /home/maperrone/MQP/MQP/_output
+0.435
+EnergyOutput 0.435,14.2858928049,0.85176509045,13.4341277145
+Frame 29 at time t = 0.435
+    Reading  Frame 30 at t = 0.45  from outdir = /home/maperrone/MQP/MQP/_output
 0.45
-EnergyOutput 0.45,243323.631539,102645.117819,140678.51372,243323.631539
-Frame 18 at time t = 0.45
-    Reading  Frame 19 at t = 0.475  from outdir = /home/maperrone/MQP/MQP/_output
-0.475
-EnergyOutput 0.475,257257.419857,90924.4277157,166332.992141,257257.419857
-Frame 19 at time t = 0.475
-    Reading  Frame 20 at t = 0.5  from outdir = /home/maperrone/MQP/MQP/_output
-0.5
-EnergyOutput 0.5,255725.008195,88487.3294418,167237.678753,255725.008195
-Frame 20 at time t = 0.5
-    Reading  Frame 21 at t = 0.525  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.45,14.2857803286,0.855481407041,13.4302989215
+Frame 30 at time t = 0.45
+    Reading  Frame 31 at t = 0.465  from outdir = /home/maperrone/MQP/MQP/_output
+0.465
+EnergyOutput 0.465,14.2856798419,0.857824121471,13.4278557205
+Frame 31 at time t = 0.465
+    Reading  Frame 32 at t = 0.48  from outdir = /home/maperrone/MQP/MQP/_output
+0.48
+EnergyOutput 0.48,14.2855888971,0.86459220465,13.4209966924
+Frame 32 at time t = 0.48
+    Reading  Frame 33 at t = 0.495  from outdir = /home/maperrone/MQP/MQP/_output
+0.495
+EnergyOutput 0.495,14.2851395745,0.867692210341,13.4174473641
+Frame 33 at time t = 0.495
+    Reading  Frame 34 at t = 0.51  from outdir = /home/maperrone/MQP/MQP/_output
+0.51
+EnergyOutput 0.51,22.8986881008,1.55374438089,21.3449437199
+Frame 34 at time t = 0.51
+    Reading  Frame 35 at t = 0.525  from outdir = /home/maperrone/MQP/MQP/_output
 0.525
-EnergyOutput 0.525,255716.31129,87423.8820993,168292.429191,255716.31129
-Frame 21 at time t = 0.525
-    Reading  Frame 22 at t = 0.55  from outdir = /home/maperrone/MQP/MQP/_output
-0.55
-EnergyOutput 0.55,255714.47013,85995.7278923,169718.742237,255714.47013
-Frame 22 at time t = 0.55
-    Reading  Frame 23 at t = 0.575  from outdir = /home/maperrone/MQP/MQP/_output
-0.575
-EnergyOutput 0.575,255714.586357,86665.1601908,169049.426166,255714.586357
-Frame 23 at time t = 0.575
-    Reading  Frame 24 at t = 0.6  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.525,22.8975281197,1.5678203144,21.3297078053
+Frame 35 at time t = 0.525
+    Reading  Frame 36 at t = 0.54  from outdir = /home/maperrone/MQP/MQP/_output
+0.54
+EnergyOutput 0.54,22.8967782652,1.57371545377,21.3230628115
+Frame 36 at time t = 0.54
+    Reading  Frame 37 at t = 0.555  from outdir = /home/maperrone/MQP/MQP/_output
+0.555
+EnergyOutput 0.555,22.8963243658,1.57399478953,21.3223295763
+Frame 37 at time t = 0.555
+    Reading  Frame 38 at t = 0.57  from outdir = /home/maperrone/MQP/MQP/_output
+0.57
+EnergyOutput 0.57,22.8961067197,1.56994353478,21.3261631849
+Frame 38 at time t = 0.57
+    Reading  Frame 39 at t = 0.585  from outdir = /home/maperrone/MQP/MQP/_output
+0.585
+EnergyOutput 0.585,22.896022475,1.56736897782,21.3286534972
+Frame 39 at time t = 0.585
+    Reading  Frame 40 at t = 0.6  from outdir = /home/maperrone/MQP/MQP/_output
 0.6
-EnergyOutput 0.6,255756.162835,91738.5406219,164017.622213,255756.162835
-Frame 24 at time t = 0.6
-    Reading  Frame 25 at t = 0.625  from outdir = /home/maperrone/MQP/MQP/_output
-0.625
-EnergyOutput 0.625,255712.138486,103457.33197,152254.806516,255712.138486
-Frame 25 at time t = 0.625
-    Reading  Frame 26 at t = 0.65  from outdir = /home/maperrone/MQP/MQP/_output
-0.65
-EnergyOutput 0.65,255654.166925,94572.9265516,161081.240373,255654.166925
-Frame 26 at time t = 0.65
-    Reading  Frame 27 at t = 0.675  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.6,22.9136853413,1.62147907507,21.2922062663
+Frame 40 at time t = 0.6
+    Reading  Frame 41 at t = 0.615  from outdir = /home/maperrone/MQP/MQP/_output
+0.615
+EnergyOutput 0.615,22.9232223792,1.80634317438,21.1168792048
+Frame 41 at time t = 0.615
+    Reading  Frame 42 at t = 0.63  from outdir = /home/maperrone/MQP/MQP/_output
+0.63
+EnergyOutput 0.63,22.9055528323,1.96848305712,20.9370697752
+Frame 42 at time t = 0.63
+    Reading  Frame 43 at t = 0.645  from outdir = /home/maperrone/MQP/MQP/_output
+0.645
+EnergyOutput 0.645,22.8920037865,1.98962491272,20.9023788737
+Frame 43 at time t = 0.645
+    Reading  Frame 44 at t = 0.66  from outdir = /home/maperrone/MQP/MQP/_output
+0.66
+EnergyOutput 0.66,22.8911169884,2.01894468458,20.8721723039
+Frame 44 at time t = 0.66
+    Reading  Frame 45 at t = 0.675  from outdir = /home/maperrone/MQP/MQP/_output
 0.675
-EnergyOutput 0.675,255722.063729,62139.3960374,193582.667692,255722.063729
-Frame 27 at time t = 0.675
-    Reading  Frame 28 at t = 0.7  from outdir = /home/maperrone/MQP/MQP/_output
-0.7
-EnergyOutput 0.7,255799.418863,98786.8013374,157012.617525,255799.418863
-Frame 28 at time t = 0.7
-    Reading  Frame 29 at t = 0.725  from outdir = /home/maperrone/MQP/MQP/_output
-0.725
-EnergyOutput 0.725,255653.839436,109351.357637,146302.4818,255653.839436
-Frame 29 at time t = 0.725
-    Reading  Frame 30 at t = 0.75  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.675,22.8907706721,2.04921785024,20.8415528219
+Frame 45 at time t = 0.675
+    Reading  Frame 46 at t = 0.69  from outdir = /home/maperrone/MQP/MQP/_output
+0.69
+EnergyOutput 0.69,22.8903296597,2.04254934566,20.8477803141
+Frame 46 at time t = 0.69
+    Reading  Frame 47 at t = 0.705  from outdir = /home/maperrone/MQP/MQP/_output
+0.705
+EnergyOutput 0.705,22.8897968072,2.00426113254,20.8855356747
+Frame 47 at time t = 0.705
+    Reading  Frame 48 at t = 0.72  from outdir = /home/maperrone/MQP/MQP/_output
+0.72
+EnergyOutput 0.72,22.888885461,1.99274843297,20.896137028
+Frame 48 at time t = 0.72
+    Reading  Frame 49 at t = 0.735  from outdir = /home/maperrone/MQP/MQP/_output
+0.735
+EnergyOutput 0.735,22.8863045586,2.02238477149,20.8639197871
+Frame 49 at time t = 0.735
+    Reading  Frame 50 at t = 0.75  from outdir = /home/maperrone/MQP/MQP/_output
 0.75
-EnergyOutput 0.75,255636.517884,109353.822309,146282.695576,255636.517884
-Frame 30 at time t = 0.75
-    Reading  Frame 31 at t = 0.775  from outdir = /home/maperrone/MQP/MQP/_output
-0.775
-EnergyOutput 0.775,262697.329999,113232.575562,149464.754437,262697.329999
-Frame 31 at time t = 0.775
-    Reading  Frame 32 at t = 0.8  from outdir = /home/maperrone/MQP/MQP/_output
-0.8
-EnergyOutput 0.8,243658.336877,103923.555276,139734.781601,243658.336877
-Frame 32 at time t = 0.8
-    Reading  Frame 33 at t = 0.825  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.75,22.8847104552,2.039626395,20.8450840602
+Frame 50 at time t = 0.75
+    Reading  Frame 51 at t = 0.765  from outdir = /home/maperrone/MQP/MQP/_output
+0.765
+EnergyOutput 0.765,43.146578171,4.574253565,38.572324606
+Frame 51 at time t = 0.765
+    Reading  Frame 52 at t = 0.78  from outdir = /home/maperrone/MQP/MQP/_output
+0.78
+EnergyOutput 0.78,43.1443455703,4.5703390528,38.5740065175
+Frame 52 at time t = 0.78
+    Reading  Frame 53 at t = 0.795  from outdir = /home/maperrone/MQP/MQP/_output
+0.795
+EnergyOutput 0.795,43.1437659518,4.56280737097,38.5809585809
+Frame 53 at time t = 0.795
+    Reading  Frame 54 at t = 0.81  from outdir = /home/maperrone/MQP/MQP/_output
+0.81
+EnergyOutput 0.81,43.1421770922,4.55569435351,38.5864827387
+Frame 54 at time t = 0.81
+    Reading  Frame 55 at t = 0.825  from outdir = /home/maperrone/MQP/MQP/_output
 0.825
-EnergyOutput 0.825,269275.167093,114358.341422,154916.825671,269275.167093
-Frame 33 at time t = 0.825
-    Reading  Frame 34 at t = 0.85  from outdir = /home/maperrone/MQP/MQP/_output
-0.85
-EnergyOutput 0.85,271209.505485,119474.117697,151735.387788,271209.505485
-Frame 34 at time t = 0.85
-    Reading  Frame 35 at t = 0.875  from outdir = /home/maperrone/MQP/MQP/_output
-0.875
-EnergyOutput 0.875,294201.784341,145017.012604,149184.771737,294201.784341
-Frame 35 at time t = 0.875
-    Reading  Frame 36 at t = 0.9  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.825,43.1405575717,4.52639530995,38.6141622617
+Frame 55 at time t = 0.825
+    Reading  Frame 56 at t = 0.84  from outdir = /home/maperrone/MQP/MQP/_output
+0.84
+EnergyOutput 0.84,43.1400605768,4.50255014984,38.637510427
+Frame 56 at time t = 0.84
+    Reading  Frame 57 at t = 0.855  from outdir = /home/maperrone/MQP/MQP/_output
+0.855
+EnergyOutput 0.855,43.1392226856,4.49911355658,38.640109129
+Frame 57 at time t = 0.855
+    Reading  Frame 58 at t = 0.87  from outdir = /home/maperrone/MQP/MQP/_output
+0.87
+EnergyOutput 0.87,43.1369416325,4.48563547418,38.6513061584
+Frame 58 at time t = 0.87
+    Reading  Frame 59 at t = 0.885  from outdir = /home/maperrone/MQP/MQP/_output
+0.885
+EnergyOutput 0.885,43.1368713926,4.47501582764,38.6618555649
+Frame 59 at time t = 0.885
+    Reading  Frame 60 at t = 0.9  from outdir = /home/maperrone/MQP/MQP/_output
 0.9
-EnergyOutput 0.9,359112.857088,124623.09513,234489.761958,359112.857088
-Frame 36 at time t = 0.9
-    Reading  Frame 37 at t = 0.925  from outdir = /home/maperrone/MQP/MQP/_output
-0.925
-EnergyOutput 0.925,482192.266941,237827.311847,244364.955094,482192.266941
-Frame 37 at time t = 0.925
-    Reading  Frame 38 at t = 0.95  from outdir = /home/maperrone/MQP/MQP/_output
-0.95
-EnergyOutput 0.95,807575.326668,339285.418085,468289.908584,807575.326668
-Frame 38 at time t = 0.95
-    Reading  Frame 39 at t = 0.975  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.9,43.2249657804,4.81023855343,38.414727227
+Frame 60 at time t = 0.9
+    Reading  Frame 61 at t = 0.915  from outdir = /home/maperrone/MQP/MQP/_output
+0.915
+EnergyOutput 0.915,43.1392806233,5.40935354499,37.7299270783
+Frame 61 at time t = 0.915
+    Reading  Frame 62 at t = 0.93  from outdir = /home/maperrone/MQP/MQP/_output
+0.93
+EnergyOutput 0.93,43.1248448834,5.41438305366,37.7104618298
+Frame 62 at time t = 0.93
+    Reading  Frame 63 at t = 0.945  from outdir = /home/maperrone/MQP/MQP/_output
+0.945
+EnergyOutput 0.945,43.1229698956,5.42002252091,37.7029473747
+Frame 63 at time t = 0.945
+    Reading  Frame 64 at t = 0.96  from outdir = /home/maperrone/MQP/MQP/_output
+0.96
+EnergyOutput 0.96,43.1210948045,5.4235824158,37.6975123887
+Frame 64 at time t = 0.96
+    Reading  Frame 65 at t = 0.975  from outdir = /home/maperrone/MQP/MQP/_output
 0.975
-EnergyOutput 0.975,864568.056328,303864.965912,560703.090416,864568.056328
-Frame 39 at time t = 0.975
-    Reading  Frame 40 at t = 1  from outdir = /home/maperrone/MQP/MQP/_output
-1.0
-EnergyOutput 1.0,860199.786287,302191.655481,558008.130806,860199.786287
-Frame 40 at time t = 1.0
-    Reading  Frame 41 at t = 1.025  from outdir = /home/maperrone/MQP/MQP/_output
-1.025
-EnergyOutput 1.025,860167.11971,302086.413386,558080.706324,860167.11971
-Frame 41 at time t = 1.025
-    Reading  Frame 42 at t = 1.05  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 0.975,43.1115562198,5.41173193035,37.6998242894
+Frame 65 at time t = 0.975
+    Reading  Frame 66 at t = 0.99  from outdir = /home/maperrone/MQP/MQP/_output
+0.99
+EnergyOutput 0.99,43.1049188258,5.40810614097,37.6968126849
+Frame 66 at time t = 0.99
+    Reading  Frame 67 at t = 1.005  from outdir = /home/maperrone/MQP/MQP/_output
+1.005
+EnergyOutput 1.005,81.5647415289,10.6531049135,70.9116366154
+LimitCurve 7.13299462056
+LimitCurve 7.397183335
+LimitCurve 7.67115695475
+LimitCurve 7.9552778888
+LimitCurve 8.24992196892
+LimitCurve 8.55547894677
+LimitCurve 8.87235300944
+LimitCurve 9.20096331414
+LimitCurve 9.54174454264
+LimitCurve 9.89514747624
+LimitCurve 10.2616395921
+LimitCurve 10.6417056816
+LimitCurve 11.0358484916
+LimitCurve 11.4445893895
+LimitCurve 11.8684690528
+LimitCurve 12.3080481845
+LimitCurve 12.7639082545
+LimitCurve 13.2366522691
+LimitCurve 13.7269055684
+LimitCurve 14.2353166536
+LimitCurve 14.7625580447
+LimitCurve 15.3093271703
+LimitCurve 15.8763472901
+LimitCurve 16.4643684515
+LimitCurve 17.0741684817
+LimitCurve 17.706554017
+LimitCurve 18.3623615694
+LimitCurve 19.0424586331
+LimitCurve 19.7477448325
+LimitCurve 20.4791531116
+LimitCurve 21.2376509686
+LimitCurve 22.0242417353
+LimitCurve 22.8399659045
+LimitCurve 23.6859025063
+LimitCurve 24.5631705356
+LimitCurve 25.4729304319
+LimitCurve 26.4163856148
+LimitCurve 27.3947840753
+LimitCurve 28.4094200273
+LimitCurve 29.461635619
+LimitCurve 30.5528227086
+LimitCurve 31.6844247051
+LimitCurve 32.8579384782
+LimitCurve 34.0749163379
+LimitCurve 35.3369680877
+LimitCurve 36.6457631545
+LimitCurve 38.0030327969
+LimitCurve 39.4105723948
+LimitCurve 40.8702438246
+LimitCurve 42.3839779222
+LimitCurve 43.9537770369
+LimitCurve 45.58171768
+LimitCurve 47.2699532721
+LimitCurve 49.0207169907
+LimitCurve 50.8363247252
+LimitCurve 52.7191781396
+LimitCurve 54.6717678498
+LimitCurve 56.6966767182
+LimitCurve 58.7965832697
+LimitCurve 60.9742652355
+LimitCurve 63.2326032273
+LimitCurve 65.5745845474
+LimitCurve 68.0033071406
+LimitCurve 70.521983692
+LimitCurve 73.1339458766
+LimitCurve 75.8426487666
+LimitCurve 78.6516754018
+LimitCurve 81.5647415289
+LimitCurve 84.5857005166
+LimitCurve 87.7185484534
+LimitCurve 90.9674294328
+LimitCurve 94.3366410356
+LimitCurve 97.8306400145
+LimitCurve 101.454048189
+LimitCurve 105.211658561
+LimitCurve 109.108441651
+LimitCurve 113.149552078
+LimitCurve 117.340335373
+LimitCurve 121.686335056
+LimitCurve 126.193299961
+LimitCurve 130.867191848
+LimitCurve 135.714193285
+LimitCurve 140.740715828
+LimitCurve 145.9534085
+LimitCurve 151.359166587
+LimitCurve 156.965140763
+LimitCurve 162.778746543
+LimitCurve 168.807674094
+LimitCurve 175.059898409
+LimitCurve 181.543689856
+LimitCurve 188.267625116
+LimitCurve 195.24059853
+LimitCurve 202.471833864
+LimitCurve 209.970896508
+LimitCurve 217.747706133
+LimitCurve 225.812549809
+LimitCurve 234.176095614
+LimitCurve 242.849406747
+LimitCurve 251.84395616
+LimitCurve 261.171641733
+LimitCurve 270.844802019
+Frame 67 at time t = 1.005
+    Reading  Frame 68 at t = 1.02  from outdir = /home/maperrone/MQP/MQP/_output
+1.02
+EnergyOutput 1.02,81.5621617339,10.6562907291,70.9058710048
+Frame 68 at time t = 1.02
+    Reading  Frame 69 at t = 1.035  from outdir = /home/maperrone/MQP/MQP/_output
+1.035
+EnergyOutput 1.035,81.5586472013,10.6641430167,70.8945041846
+Frame 69 at time t = 1.035
+    Reading  Frame 70 at t = 1.05  from outdir = /home/maperrone/MQP/MQP/_output
 1.05
-EnergyOutput 1.05,860141.188503,300943.881042,559197.307462,860141.188503
-Frame 42 at time t = 1.05
-    Reading  Frame 43 at t = 1.075  from outdir = /home/maperrone/MQP/MQP/_output
-1.075
-EnergyOutput 1.075,860116.669735,300359.169891,559757.499844,860116.669735
-Frame 43 at time t = 1.075
-    Reading  Frame 44 at t = 1.1  from outdir = /home/maperrone/MQP/MQP/_output
-1.1
-EnergyOutput 1.1,860090.499175,300314.810934,559775.688241,860090.499175
-Frame 44 at time t = 1.1
-    Reading  Frame 45 at t = 1.125  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 1.05,81.553426817,10.6556817629,70.897745054
+Frame 70 at time t = 1.05
+    Reading  Frame 71 at t = 1.065  from outdir = /home/maperrone/MQP/MQP/_output
+1.065
+EnergyOutput 1.065,81.5517130129,10.5974581913,70.9542548217
+Frame 71 at time t = 1.065
+    Reading  Frame 72 at t = 1.08  from outdir = /home/maperrone/MQP/MQP/_output
+1.08
+EnergyOutput 1.08,81.5485568135,10.5947424333,70.9538143802
+Frame 72 at time t = 1.08
+    Reading  Frame 73 at t = 1.095  from outdir = /home/maperrone/MQP/MQP/_output
+1.095
+EnergyOutput 1.095,81.5488163813,10.6017662443,70.947050137
+Frame 73 at time t = 1.095
+    Reading  Frame 74 at t = 1.11  from outdir = /home/maperrone/MQP/MQP/_output
+1.11
+EnergyOutput 1.11,81.5434123571,10.6181769238,70.9252354334
+Frame 74 at time t = 1.11
+    Reading  Frame 75 at t = 1.125  from outdir = /home/maperrone/MQP/MQP/_output
 1.125
-EnergyOutput 1.125,860070.661657,301153.577802,558917.083855,860070.661657
-Frame 45 at time t = 1.125
-    Reading  Frame 46 at t = 1.15  from outdir = /home/maperrone/MQP/MQP/_output
-1.15
-EnergyOutput 1.15,860035.692664,295594.106615,564441.586049,860035.692664
-Frame 46 at time t = 1.15
-    Reading  Frame 47 at t = 1.175  from outdir = /home/maperrone/MQP/MQP/_output
-1.175
-EnergyOutput 1.175,860391.997317,333860.716454,526531.280863,860391.997317
-Frame 47 at time t = 1.175
-    Reading  Frame 48 at t = 1.2  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 1.125,81.5399481769,10.6341661465,70.9057820304
+Frame 75 at time t = 1.125
+    Reading  Frame 76 at t = 1.14  from outdir = /home/maperrone/MQP/MQP/_output
+1.14
+EnergyOutput 1.14,81.5361187297,10.5461908408,70.9899278889
+Frame 76 at time t = 1.14
+    Reading  Frame 77 at t = 1.155  from outdir = /home/maperrone/MQP/MQP/_output
+1.155
+EnergyOutput 1.155,81.529443766,10.5733660674,70.9560776986
+Frame 77 at time t = 1.155
+    Reading  Frame 78 at t = 1.17  from outdir = /home/maperrone/MQP/MQP/_output
+1.17
+EnergyOutput 1.17,81.7242515278,10.7974618214,70.9267897064
+Frame 78 at time t = 1.17
+    Reading  Frame 79 at t = 1.185  from outdir = /home/maperrone/MQP/MQP/_output
+1.185
+EnergyOutput 1.185,81.5032966709,12.3304140862,69.1728825847
+Frame 79 at time t = 1.185
+    Reading  Frame 80 at t = 1.2  from outdir = /home/maperrone/MQP/MQP/_output
 1.2
-EnergyOutput 1.2,861288.446368,327862.684832,533425.761537,861288.446368
-Frame 48 at time t = 1.2
-    Reading  Frame 49 at t = 1.225  from outdir = /home/maperrone/MQP/MQP/_output
-1.225
-EnergyOutput 1.225,859477.29361,362073.14115,497404.15246,859477.29361
-Frame 49 at time t = 1.225
-    Reading  Frame 50 at t = 1.25  from outdir = /home/maperrone/MQP/MQP/_output
-1.25
-EnergyOutput 1.25,859287.88457,362125.583692,497162.300878,859287.88457
-Frame 50 at time t = 1.25
-    Reading  Frame 51 at t = 1.275  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 1.2,81.4914172238,12.280491242,69.2109259817
+Frame 80 at time t = 1.2
+    Reading  Frame 81 at t = 1.215  from outdir = /home/maperrone/MQP/MQP/_output
+1.215
+EnergyOutput 1.215,81.4642373241,12.2639859999,69.2002513242
+Frame 81 at time t = 1.215
+    Reading  Frame 82 at t = 1.23  from outdir = /home/maperrone/MQP/MQP/_output
+1.23
+EnergyOutput 1.23,81.4380173023,12.2294477769,69.2085695254
+Frame 82 at time t = 1.23
+    Reading  Frame 83 at t = 1.245  from outdir = /home/maperrone/MQP/MQP/_output
+1.245
+EnergyOutput 1.245,81.4183549607,12.2025284712,69.2158264895
+Frame 83 at time t = 1.245
+    Reading  Frame 84 at t = 1.26  from outdir = /home/maperrone/MQP/MQP/_output
+1.26
+EnergyOutput 1.26,153.234533998,23.0775874371,130.156946561
+Frame 84 at time t = 1.26
+    Reading  Frame 85 at t = 1.275  from outdir = /home/maperrone/MQP/MQP/_output
 1.275
-EnergyOutput 1.275,894936.313142,377902.823774,517033.489368,894936.313142
-Frame 51 at time t = 1.275
-    Reading  Frame 52 at t = 1.3  from outdir = /home/maperrone/MQP/MQP/_output
-1.3
-EnergyOutput 1.3,919920.630573,397600.710481,522319.920092,919920.630573
-Frame 52 at time t = 1.3
-    Reading  Frame 53 at t = 1.325  from outdir = /home/maperrone/MQP/MQP/_output
-1.325
-EnergyOutput 1.325,845278.467916,359261.974495,486016.49342,845278.467916
-Frame 53 at time t = 1.325
-    Reading  Frame 54 at t = 1.35  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 1.275,153.22374232,23.0738074073,130.149934912
+Frame 85 at time t = 1.275
+    Reading  Frame 86 at t = 1.29  from outdir = /home/maperrone/MQP/MQP/_output
+1.29
+EnergyOutput 1.29,153.207422578,23.0530443786,130.1543782
+Frame 86 at time t = 1.29
+    Reading  Frame 87 at t = 1.305  from outdir = /home/maperrone/MQP/MQP/_output
+1.305
+EnergyOutput 1.305,153.200083845,22.9689269617,130.231156884
+Frame 87 at time t = 1.305
+    Reading  Frame 88 at t = 1.32  from outdir = /home/maperrone/MQP/MQP/_output
+1.32
+EnergyOutput 1.32,153.18801535,22.9705044151,130.217510935
+Frame 88 at time t = 1.32
+    Reading  Frame 89 at t = 1.335  from outdir = /home/maperrone/MQP/MQP/_output
+1.335
+EnergyOutput 1.335,153.177078508,22.9647085441,130.212369964
+Frame 89 at time t = 1.335
+    Reading  Frame 90 at t = 1.35  from outdir = /home/maperrone/MQP/MQP/_output
 1.35
-EnergyOutput 1.35,912055.171167,391265.523018,520789.648149,912055.171167
-Frame 54 at time t = 1.35
-    Reading  Frame 55 at t = 1.375  from outdir = /home/maperrone/MQP/MQP/_output
-1.375
-EnergyOutput 1.375,934357.037746,414136.755915,520220.281832,934357.037746
-Frame 55 at time t = 1.375
-    Reading  Frame 56 at t = 1.4  from outdir = /home/maperrone/MQP/MQP/_output
-1.4
-EnergyOutput 1.4,938545.185555,419567.489208,518977.696347,938545.185555
-Frame 56 at time t = 1.4
-    Reading  Frame 57 at t = 1.425  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 1.35,153.167087449,22.9622245613,130.204862888
+Frame 90 at time t = 1.35
+    Reading  Frame 91 at t = 1.365  from outdir = /home/maperrone/MQP/MQP/_output
+1.365
+EnergyOutput 1.365,153.157265011,22.9761741769,130.181090834
+Frame 91 at time t = 1.365
+    Reading  Frame 92 at t = 1.38  from outdir = /home/maperrone/MQP/MQP/_output
+1.38
+EnergyOutput 1.38,153.144716149,22.8352839759,130.309432173
+Frame 92 at time t = 1.38
+    Reading  Frame 93 at t = 1.395  from outdir = /home/maperrone/MQP/MQP/_output
+1.395
+EnergyOutput 1.395,153.146485749,22.8627591209,130.283726628
+Frame 93 at time t = 1.395
+    Reading  Frame 94 at t = 1.41  from outdir = /home/maperrone/MQP/MQP/_output
+1.41
+EnergyOutput 1.41,153.120857185,22.9173668809,130.203490304
+Frame 94 at time t = 1.41
+    Reading  Frame 95 at t = 1.425  from outdir = /home/maperrone/MQP/MQP/_output
 1.425
-EnergyOutput 1.425,1024778.6471,510091.323259,514687.323838,1024778.6471
-Frame 57 at time t = 1.425
-    Reading  Frame 58 at t = 1.45  from outdir = /home/maperrone/MQP/MQP/_output
-1.45
-EnergyOutput 1.45,2760854.2799,1179130.93685,1581723.34305,2760854.2799
-Frame 58 at time t = 1.45
-    Reading  Frame 59 at t = 1.475  from outdir = /home/maperrone/MQP/MQP/_output
-1.475
-EnergyOutput 1.475,2951090.11205,1055177.91989,1895912.19216,2951090.11205
-Frame 59 at time t = 1.475
-    Reading  Frame 60 at t = 1.5  from outdir = /home/maperrone/MQP/MQP/_output
+EnergyOutput 1.425,153.10023491,22.8598609284,130.240373982
+Frame 95 at time t = 1.425
+    Reading  Frame 96 at t = 1.44  from outdir = /home/maperrone/MQP/MQP/_output
+1.44
+EnergyOutput 1.44,153.097799968,26.0277532079,127.07004676
+Frame 96 at time t = 1.44
+    Reading  Frame 97 at t = 1.455  from outdir = /home/maperrone/MQP/MQP/_output
+1.455
+EnergyOutput 1.455,152.960773971,26.0043875649,126.956386406
+Frame 97 at time t = 1.455
+    Reading  Frame 98 at t = 1.47  from outdir = /home/maperrone/MQP/MQP/_output
+1.47
+EnergyOutput 1.47,152.83735921,25.9673480719,126.870011138
+Frame 98 at time t = 1.47
+    Reading  Frame 99 at t = 1.485  from outdir = /home/maperrone/MQP/MQP/_output
+1.485
+EnergyOutput 1.485,152.749350957,25.946586448,126.802764509
+Frame 99 at time t = 1.485
+    Reading  Frame 100 at t = 1.5  from outdir = /home/maperrone/MQP/MQP/_output
 1.5
-EnergyOutput 1.5,2961459.01433,1060575.04721,1900883.96713,2961459.01433
-LimitCurve 77993.2679557
-LimitCurve 82866.932226
-LimitCurve 88045.1433378
-LimitCurve 93546.9318961
-LimitCurve 99392.5176951
-LimitCurve 105603.384029
-LimitCurve 112202.356646
-LimitCurve 119213.687636
-LimitCurve 126663.14456
-LimitCurve 134578.105148
-LimitCurve 142987.657919
-LimitCurve 151922.709081
-LimitCurve 161416.096119
-LimitCurve 171502.708476
-LimitCurve 182219.615774
-LimitCurve 193606.204053
-LimitCurve 205704.320518
-LimitCurve 218558.427333
-LimitCurve 232215.765027
-LimitCurve 246726.526105
-LimitCurve 262144.039518
-LimitCurve 278524.966648
-LimitCurve 295929.509552
-LimitCurve 314421.632206
-LimitCurve 334069.295586
-LimitCurve 354944.707431
-LimitCurve 377124.587617
-LimitCurve 400690.450111
-LimitCurve 425728.902549
-LimitCurve 452331.964525
-LimitCurve 480597.405782
-LimitCurve 510629.105522
-LimitCurve 542537.434179
-LimitCurve 576439.659045
-LimitCurve 612460.375242
-LimitCurve 650731.963624
-LimitCurve 691395.077298
-LimitCurve 734599.158537
-LimitCurve 780502.988006
-LimitCurve 829275.268297
-LimitCurve 881095.243934
-LimitCurve 936153.360124
-LimitCurve 994651.962662
-LimitCurve 1056806.04158
-LimitCurve 1122844.02128
-LimitCurve 1193008.59998
-LimitCurve 1267557.64171
-LimitCurve 1346765.12398
-LimitCurve 1430922.14468
-LimitCurve 1520337.99188
-LimitCurve 1615341.28055
-LimitCurve 1716281.16023
-LimitCurve 1823528.59821
-LimitCurve 1937477.7429
-LimitCurve 2058547.37234
-LimitCurve 2187182.43329
-LimitCurve 2323855.67647
-LimitCurve 2469069.39397
-LimitCurve 2623357.26524
-LimitCurve 2787286.31844
-LimitCurve 2961459.01433
-LimitCurve 3146515.46042
-LimitCurve 3343135.76339
-LimitCurve 3552042.52865
-LimitCurve 3774003.51596
-LimitCurve 4009834.46103
-LimitCurve 4260402.07353
-LimitCurve 4526627.22228
-LimitCurve 4809488.31961
-LimitCurve 5110024.91714
-LimitCurve 5429341.52628
-LimitCurve 5768611.67743
-LimitCurve 6129082.23288
-LimitCurve 6512077.9692
-LimitCurve 6919006.44592
-LimitCurve 7351363.17856
-LimitCurve 7810737.13481
-LimitCurve 8298816.57418
-LimitCurve 8817395.25262
-LimitCurve 9368379.01476
-LimitCurve 9953792.79818
-LimitCurve 10575788.0753
-LimitCurve 11236650.7603
-LimitCurve 11938809.6102
-LimitCurve 12684845.1509
-LimitCurve 13477499.1607
-LimitCurve 14319684.7472
-LimitCurve 15214497.0527
-LimitCurve 16165224.6298
-LimitCurve 17175361.5271
-LimitCurve 18248620.13
-LimitCurve 19388944.8047
-LimitCurve 20600526.3939
-LimitCurve 21887817.6187
-LimitCurve 23255549.4432
-LimitCurve 24708748.4613
-LimitCurve 26252755.3698
-LimitCurve 27893244.5966
-LimitCurve 29636245.1546
-LimitCurve 31488162.7996
-LimitCurve 33455803.5717
-Frame 60 at time t = 1.5
-    Reading  Frame 61 at t = 1.525  from outdir = /home/maperrone/MQP/MQP/_output
-1.525
-EnergyOutput 1.525,2961011.88285,1060003.23023,1901008.65262,2961011.88285
-Frame 61 at time t = 1.525
-    Reading  Frame 62 at t = 1.55  from outdir = /home/maperrone/MQP/MQP/_output
-1.55
-EnergyOutput 1.55,2960533.82985,1054920.81311,1905613.01673,2960533.82985
-Frame 62 at time t = 1.55
-    Reading  Frame 63 at t = 1.575  from outdir = /home/maperrone/MQP/MQP/_output
-1.575
-EnergyOutput 1.575,2960108.81786,1054613.36613,1905495.45173,2960108.81786
-Frame 63 at time t = 1.575
-    Reading  Frame 64 at t = 1.6  from outdir = /home/maperrone/MQP/MQP/_output
-1.6
-EnergyOutput 1.6,2959730.95249,1054773.27011,1904957.68238,2959730.95249
-Frame 64 at time t = 1.6
-    Reading  Frame 65 at t = 1.625  from outdir = /home/maperrone/MQP/MQP/_output
-1.625
-EnergyOutput 1.625,2959317.18015,1051806.19233,1907510.98782,2959317.18015
-Frame 65 at time t = 1.625
-    Reading  Frame 66 at t = 1.65  from outdir = /home/maperrone/MQP/MQP/_output
-1.65
-EnergyOutput 1.65,2958880.37403,1047327.65248,1911552.72155,2958880.37403
-Frame 66 at time t = 1.65
-    Reading  Frame 67 at t = 1.675  from outdir = /home/maperrone/MQP/MQP/_output
-1.675
-EnergyOutput 1.675,2958703.98679,1043854.96404,1914849.02275,2958703.98679
-Frame 67 at time t = 1.675
-    Reading  Frame 68 at t = 1.7  from outdir = /home/maperrone/MQP/MQP/_output
-1.7
-EnergyOutput 1.7,2974047.03682,1147704.71277,1826342.32406,2974047.03682
-Frame 68 at time t = 1.7
-    Reading  Frame 69 at t = 1.725  from outdir = /home/maperrone/MQP/MQP/_output
-1.725
-EnergyOutput 1.725,2950809.68385,1252603.0884,1698206.59545,2950809.68385
-Frame 69 at time t = 1.725
-    Reading  Frame 70 at t = 1.75  from outdir = /home/maperrone/MQP/MQP/_output
-1.75
-EnergyOutput 1.75,2946983.7053,1250899.31176,1696084.39354,2946983.7053
-Frame 70 at time t = 1.75
-    Reading  Frame 71 at t = 1.775  from outdir = /home/maperrone/MQP/MQP/_output
-1.775
-EnergyOutput 1.775,3052782.89513,1304631.12585,1748151.76928,3052782.89513
-Frame 71 at time t = 1.775
-    Reading  Frame 72 at t = 1.8  from outdir = /home/maperrone/MQP/MQP/_output
-1.8
-EnergyOutput 1.8,3127787.32582,1369080.74157,1758706.58426,3127787.32582
-Frame 72 at time t = 1.8
-    Reading  Frame 73 at t = 1.825  from outdir = /home/maperrone/MQP/MQP/_output
-1.825
-EnergyOutput 1.825,3166070.6392,1387904.81264,1778165.82656,3166070.6392
-Frame 73 at time t = 1.825
-    Reading  Frame 74 at t = 1.85  from outdir = /home/maperrone/MQP/MQP/_output
-1.85
-EnergyOutput 1.85,3135814.75713,1375484.09376,1760330.66337,3135814.75713
-Frame 74 at time t = 1.85
-    Reading  Frame 75 at t = 1.875  from outdir = /home/maperrone/MQP/MQP/_output
-1.875
-EnergyOutput 1.875,3215253.3256,1442422.59246,1772830.73314,3215253.3256
-Frame 75 at time t = 1.875
-    Reading  Frame 76 at t = 1.9  from outdir = /home/maperrone/MQP/MQP/_output
-1.9
-EnergyOutput 1.9,3247151.84696,1478787.86341,1768363.98355,3247151.84696
-Frame 76 at time t = 1.9
-    Reading  Frame 77 at t = 1.925  from outdir = /home/maperrone/MQP/MQP/_output
-1.925
-EnergyOutput 1.925,3355142.80183,1546685.88408,1808456.91775,3355142.80183
-Frame 77 at time t = 1.925
-    Reading  Frame 78 at t = 1.95  from outdir = /home/maperrone/MQP/MQP/_output
-1.95
-EnergyOutput 1.95,9380824.44167,4134128.20399,5246696.23768,9380824.44167
-Frame 78 at time t = 1.95
-    Reading  Frame 79 at t = 1.975  from outdir = /home/maperrone/MQP/MQP/_output
-1.975
-EnergyOutput 1.975,10031388.9946,3650824.4837,6380564.51088,10031388.9946
-Frame 79 at time t = 1.975
-    Reading  Frame 80 at t = 2  from outdir = /home/maperrone/MQP/MQP/_output
-2.0
-EnergyOutput 2.0,9975757.7069,3627339.30151,6348418.40539,9975757.7069
-Frame 80 at time t = 2.0
-    Reading  Frame 81 at t = 2.025  from outdir = /home/maperrone/MQP/MQP/_output
-2.025
-EnergyOutput 2.025,9956280.79692,3620457.88848,6335822.90844,9956280.79692
-Frame 81 at time t = 2.025
-    Reading  Frame 82 at t = 2.05  from outdir = /home/maperrone/MQP/MQP/_output
-2.05
-EnergyOutput 2.05,9934701.48014,3603190.97544,6331510.5047,9934701.48014
-Frame 82 at time t = 2.05
-    Reading  Frame 83 at t = 2.075  from outdir = /home/maperrone/MQP/MQP/_output
-2.075
-EnergyOutput 2.075,9914822.88564,3593998.92305,6320823.96259,9914822.88564
-Frame 83 at time t = 2.075
-    Reading  Frame 84 at t = 2.1  from outdir = /home/maperrone/MQP/MQP/_output
-2.1
-EnergyOutput 2.1,9897017.95739,3583993.64112,6313024.31626,9897017.95739
-Frame 84 at time t = 2.1
-    Reading  Frame 85 at t = 2.125  from outdir = /home/maperrone/MQP/MQP/_output
-2.125
-EnergyOutput 2.125,9879564.95626,3556328.78557,6323236.17069,9879564.95626
-Frame 85 at time t = 2.125
-    Reading  Frame 86 at t = 2.15  from outdir = /home/maperrone/MQP/MQP/_output
-2.15
-EnergyOutput 2.15,9865214.86583,3541866.18473,6323348.6811,9865214.86583
-Frame 86 at time t = 2.15
-    Reading  Frame 87 at t = 2.175  from outdir = /home/maperrone/MQP/MQP/_output
-2.175
-EnergyOutput 2.175,9847158.05886,3501426.65201,6345731.40685,9847158.05886
-Frame 87 at time t = 2.175
-    Reading  Frame 88 at t = 2.2  from outdir = /home/maperrone/MQP/MQP/_output
-2.2
-EnergyOutput 2.2,10030269.0808,3837661.26128,6192607.81951,10030269.0808
-Frame 88 at time t = 2.2
-    Reading  Frame 89 at t = 2.225  from outdir = /home/maperrone/MQP/MQP/_output
-2.225
-EnergyOutput 2.225,9513645.65683,4034224.72426,5479420.93258,9513645.65683
-Frame 89 at time t = 2.225
-    Reading  Frame 90 at t = 2.25  from outdir = /home/maperrone/MQP/MQP/_output
-2.25
-EnergyOutput 2.25,9319605.22649,3962210.28968,5357394.93681,9319605.22649
-Frame 90 at time t = 2.25
-    Reading  Frame 91 at t = 2.275  from outdir = /home/maperrone/MQP/MQP/_output
-2.275
-EnergyOutput 2.275,9585823.18495,4075725.42187,5510097.76309,9585823.18495
-Frame 91 at time t = 2.275
-    Reading  Frame 92 at t = 2.3  from outdir = /home/maperrone/MQP/MQP/_output
-2.3
-EnergyOutput 2.3,9796286.85028,4206635.20345,5589651.64683,9796286.85028
-Frame 92 at time t = 2.3
-    Reading  Frame 93 at t = 2.325  from outdir = /home/maperrone/MQP/MQP/_output
-2.325
-EnergyOutput 2.325,9799705.61009,4201963.43667,5597742.17342,9799705.61009
-Frame 93 at time t = 2.325
-    Reading  Frame 94 at t = 2.35  from outdir = /home/maperrone/MQP/MQP/_output
-2.35
-EnergyOutput 2.35,9761393.61564,4183840.84101,5577552.77462,9761393.61564
-Frame 94 at time t = 2.35
-    Reading  Frame 95 at t = 2.375  from outdir = /home/maperrone/MQP/MQP/_output
-2.375
-EnergyOutput 2.375,9947387.3803,4319414.95747,5627972.42283,9947387.3803
-Frame 95 at time t = 2.375
-    Reading  Frame 96 at t = 2.4  from outdir = /home/maperrone/MQP/MQP/_output
-2.4
-EnergyOutput 2.4,10093680.0339,4454318.03141,5639362.00246,10093680.0339
-Frame 96 at time t = 2.4
-    Reading  Frame 97 at t = 2.425  from outdir = /home/maperrone/MQP/MQP/_output
-2.425
-EnergyOutput 2.425,10393387.4443,4731995.18828,5661392.25598,10393387.4443
-Frame 97 at time t = 2.425
-    Reading  Frame 98 at t = 2.45  from outdir = /home/maperrone/MQP/MQP/_output
-2.45
-EnergyOutput 2.45,26546971.7679,14565743.1199,11981228.6481,26546971.7679
-Frame 98 at time t = 2.45
-    Reading  Frame 99 at t = 2.475  from outdir = /home/maperrone/MQP/MQP/_output
-2.475
-EnergyOutput 2.475,27263763.0476,10441117.759,16822645.2885,27263763.0476
-Frame 99 at time t = 2.475
-    Reading  Frame 100 at t = 2.5  from outdir = /home/maperrone/MQP/MQP/_output
-2.5
-EnergyOutput 2.5,25611934.8802,9641247.16473,15970687.7154,25611934.8802
-Frame 100 at time t = 2.5
+EnergyOutput 1.5,289.987249649,50.6591255013,239.328124148
+Frame 100 at time t = 1.5
 
 -----------------------------------
 
@@ -633,4 +633,4 @@ Created JSAnimation for figure 0
 
 Point your browser to:
     file:///home/maperrone/MQP/MQP/_plots/_PlotIndex.html
---- 3561.45465899 seconds ---
+--- 1776.41487908 seconds ---
