@@ -9,16 +9,23 @@ Wave Equation Solvers for Senior Thesis in Python
 5. The actual wave propagation video is stored in the output folder Plots. Other things can be graphed this way as well. It can be accessed by the URL printed to the command line on completion of 'make graphs'
 
 ##Dependencies:
+
+To install most of the dependencies, we can use
+pip install -r requirements.txt
+in the terminal or check out the dependencies in requirements.txt if you want to install another way, in case pip fails. The dependencies should be installed in virtualenv for portability, and some instructions for that are below. pip 8.x and Python 2.7.12 must already be installed if you want to run things locally outside virtualenv, otherwise the version numbers are not as important. All these programs can most likely be installed by apt-get too, or at least have their own documentation.
+
 The clawpack documentation for getting things running is excellent
 [read it here](http://www.clawpack.org/installing.html#installation-instructions)
 Especially read the part about setting the environment variables: put those
-command line prompts in .bashrc in your home folder. There is a py
+command line prompts in .bashrc in your home folder. Note that pythonpath in .bashrc will be different depending on whether you are using virtualenv or native python.
 
-For portability, we use virtualenv to run the clawpack code, which makes a virtual python environment in the current directory, so that this project doesn't interfere with the default Python version of the computer.
+The default system python path can be found by typing 'which python', but if you need 2.7.12 and don't have it, you need to use virtualenv, so you install it separately and point pythonpath to the folder this project is in, and then set up pythonpath to point to the directory of the new virtual environment. you can do this with
+virtualenv --python=/usr/bin/python2.7 (this arg is your pwd in this folder, where you should point pythonpath)
 
-Once Virtualenv is active, we can install most of the dependencies for the project with
-pip install -r requirements.txt
-or check out what the dependencies are by opening requirements.txt if you prefer to install another way.
+For portability, we use virtualenv (with python 2.7.12) to run the clawpack code, which makes a virtual python environment in the current directory, so that this project doesn't interfere with the default Python version of the computer. To set up virtualenv, see the instructions further below.
+
+
+
 
 Other things to note:
 1. gfortran can be replaced with an equivalent fortran compiler
@@ -48,4 +55,7 @@ install dependencies for the project with
 When virtualenv is activated, the makefile can run the code with
 5. make graphs
 
-Note to self: for python, tabs need to be converted into four spaces, but for the makefile they need to be actual tabs. In Vim, shift tab gives you tab, and 'set et' and 'set sw=4' makes tab into 4 spaces.
+Important: for python, tabs need to be converted into four spaces, but for the makefile they need to be actual tabs. if the files are called 'makefile' vim will recognize them and change behavior. If you need tabs in other circumstances, ctrl-V-tab will produce an actual tab. In Vim 'set tabstop=4' and 'set expandtab' and 'set shiftwidth=4' makes tab into 4 spaces.
+this is set in .vimrc, which you create in /home/user
+
+Obviously vim is not needed for running things but I like it.
