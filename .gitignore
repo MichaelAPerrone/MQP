@@ -8,3 +8,6 @@ Checkerboard_NoChar.png
 MyCharStream_LinearPropertyChange.py
 Energy2.png
 LimitCurve.csv
+EnergyVals.csv
+output.csv
+pyclaw.log
