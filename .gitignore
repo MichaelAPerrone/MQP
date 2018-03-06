@@ -1,6 +1,12 @@
 /ven/*
-/_output/
-/_plots/
+/bin/
+/include/
+/lib/
+/local/
+/pip-selfcheck.json
+/_output/*
+/_plots/*
+/EnergyGraphs/*
 Checkerboard.png
 Checkerboard_Full.png
 Checkerboard_LC.png
