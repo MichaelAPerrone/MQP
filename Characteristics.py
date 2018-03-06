@@ -11,7 +11,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 #Set the material phase velocities in materials 1 and 2
 #a1=.55;a2=1.1; 
-a1=1.0;a2=0.7; 
+a1=1.0;a2=0.8; 
 
 #Set the checkerboard geometrical paramaters
 tau=1.0;n1=.5;
@@ -68,12 +68,12 @@ def LC_Loc1(delta,tau,a1,a2,m,n,alpha,beta):
 
 #################################Definition of Material Geometry################
 ############ Standard Checkerboard
-#def f_u(x,t,u1,u2):
-    #def M1(x):
-        #return (u1*(np.mod(x,eps)<m1*eps) + u2*(np.mod(x,eps)>=m1*eps));
-    #def M2(x):
-        #return (u2*(np.mod(x,eps)<m1*eps) + u1*(np.mod(x,eps)>=m1*eps));
-    #return (M1(x)*(np.mod(t,tau)<n1*tau)+M2(x)*(np.mod(t,tau)>=n1*tau))
+def f_u(x,t,u1,u2):
+    def M1(x):
+        return (u1*(np.mod(x,eps)<m1*eps) + u2*(np.mod(x,eps)>=m1*eps));
+    def M2(x):
+        return (u2*(np.mod(x,eps)<m1*eps) + u1*(np.mod(x,eps)>=m1*eps));
+    return (M1(x)*(np.mod(t,tau)<n1*tau)+M2(x)*(np.mod(t,tau)>=n1*tau))
 
 ############ Functionallay Graded Checkerboard (tanh function)
 ####alpha=.75;
@@ -135,16 +135,16 @@ def p(xi,eta,xi1,xi2,eta1,eta2,y1,y2):
 
 
 ###########################Linear FG Checkerboard    
-def py(x,z1,z2,t,t1,t2,u1,u2):
-    return (p(x,t,z1,z2,t1,t2,u1,u2)*((z1 <= x)*(x < z2)*(x-z1 <((z2-z1)/(t1-t2))*(t-t2)))+
-	    p(x,t,z2,z1,t2,t1,u1,u2)*((z1 <= x)*(x < z2)*(x-z1>=((z2-z1)/(t1-t2))*(t-t2))))
+#def py(x,z1,z2,t,t1,t2,u1,u2):
+#    return (p(x,t,z1,z2,t1,t2,u1,u2)*((z1 <= x)*(x < z2)*(x-z1 <((z2-z1)/(t1-t2))*(t-t2)))+
+#	    p(x,t,z2,z1,t2,t1,u1,u2)*((z1 <= x)*(x < z2)*(x-z1>=((z2-z1)/(t1-t2))*(t-t2))))
     
-Wx=alpha
-Wt=beta;    
-def f_u(x,t,u1,u2):
-    xTi=np.mod(x,eps);
-    tTi=np.mod(t,tau);
-    
+#Wx=alpha
+#Wt=beta;    
+#def f_u(x,t,u1,u2):
+#    xTi=np.mod(x,eps);
+#    tTi=np.mod(t,tau);
+#commented out so that non functionally graded checkerboard can be used - to use functionally graded code need to uncomment this and comment out f_u above. Namespaces man...    
     #def M1(x):
         #return u1*(xTi < z1) + l(x,z1,z2,u1,u2)*((z1<=xTi)*(xTi < z2))+u2*(z2<= xTi)
     #def M2(x,t):
@@ -155,56 +155,56 @@ def f_u(x,t,u1,u2):
     #def M3(x):
         #return u2*(xTi < z1) + l(x,z2,z1,u1,u2)*((z1<=xTi)*(xTi < z2))+u1*(z2<= xTi);
     
-    def M0(x,t):      
-        return (py(x,-Wx,Wx,t,-Wt,Wt,u1,u2)*(x<Wx)+
-                l(t,-Wt,Wt,u2,u1)*(x>=Wx)*(x<m1*eps-Wx)+
-                py(x,m1*eps-Wx,m1*eps+Wx,t,-Wt,Wt,u2,u1)*(x>=m1*eps-Wx)*(x<m1*eps+Wx)+ 
-		l(t,-Wt,Wt,u1,u2)*(m1*eps+Wx<=x)*(x<eps-Wx)+
-                py(x,eps-Wx,eps+Wx,t,-Wt,Wt,u1,u2)*(x>eps-Wx))
+#    def M0(x,t):      
+#        return (py(x,-Wx,Wx,t,-Wt,Wt,u1,u2)*(x<Wx)+
+#                l(t,-Wt,Wt,u2,u1)*(x>=Wx)*(x<m1*eps-Wx)+
+#                py(x,m1*eps-Wx,m1*eps+Wx,t,-Wt,Wt,u2,u1)*(x>=m1*eps-Wx)*(x<m1*eps+Wx)+ 
+#		l(t,-Wt,Wt,u1,u2)*(m1*eps+Wx<=x)*(x<eps-Wx)+
+#                py(x,eps-Wx,eps+Wx,t,-Wt,Wt,u1,u2)*(x>eps-Wx))
     
-    def M1(x,t,u1,u2):
-        z1=m1*eps-Wx;
-        z2=m1*eps+Wx;
-        return (l(x,-Wx,Wx,u2,u1)*(x<Wx)+
-                u1*(Wx<=x)*(x < z1) + 
-                l(x,z1,z2,u1,u2)*((z1<=x)*(x < z2))+
-                u2*(z2<= x)*(x<eps-Wx)+
-                l(x,eps-Wx,eps+Wx,u2,u1)*(eps-Wx<=x))
+#    def M1(x,t,u1,u2):
+#        z1=m1*eps-Wx;
+#        z2=m1*eps+Wx;
+#        return (l(x,-Wx,Wx,u2,u1)*(x<Wx)+
+#                u1*(Wx<=x)*(x < z1) + 
+#                l(x,z1,z2,u1,u2)*((z1<=x)*(x < z2))+
+#                u2*(z2<= x)*(x<eps-Wx)+
+#                l(x,eps-Wx,eps+Wx,u2,u1)*(eps-Wx<=x))
 
-    def M2(x,t):
-        t1=n1*tau-Wt;
-        t2=n1*tau+Wt;
-        z1=m1*eps-Wx;
-        z2=m1*eps+Wx;
-        return (py(x,-Wx,Wx,t,t1,t2,u2,u1)*(x<Wx)+
-	       l(t,t1,t2,u1,u2)*(Wx<=x)*(x < z1) + 
-	       p(x,t,z1,z2,t1,t2,u1,u2)*((z1 <= x)*(x < z2)*(x-z1 <((z2-z1)/(t1-t2))*(t-t2)))+
-	       p(x,t,z2,z1,t2,t1,u1,u2)*((z1 <= x)*(x < z2)*(x-z1>=((z2-z1)/(t1-t2))*(t-t2)))+
-	       l(t,t1,t2,u2,u1)*(z2 <= x)*(x<eps-Wx)+
-	       py(x,eps-Wx,eps+Wx,t,n1*tau-Wt,n1*tau+Wt,u2,u1)*(eps-Wx<=x))
+#    def M2(x,t):
+#        t1=n1*tau-Wt;
+#        t2=n1*tau+Wt;
+#        z1=m1*eps-Wx;
+#        z2=m1*eps+Wx;
+#        return (py(x,-Wx,Wx,t,t1,t2,u2,u1)*(x<Wx)+
+#	       l(t,t1,t2,u1,u2)*(Wx<=x)*(x < z1) + 
+#	       p(x,t,z1,z2,t1,t2,u1,u2)*((z1 <= x)*(x < z2)*(x-z1 <((z2-z1)/(t1-t2))*(t-t2)))+
+#	       p(x,t,z2,z1,t2,t1,u1,u2)*((z1 <= x)*(x < z2)*(x-z1>=((z2-z1)/(t1-t2))*(t-t2)))+
+#	       l(t,t1,t2,u2,u1)*(z2 <= x)*(x<eps-Wx)+
+#	       py(x,eps-Wx,eps+Wx,t,n1*tau-Wt,n1*tau+Wt,u2,u1)*(eps-Wx<=x))
 #    def M3(x,t):
 #        z1=m1*eps-Wx;
 #        z2=m1*eps+Wx;
 #        return l(x,-Wx,Wx,u1,u2)*(x<Wx)+u2*(Wx<=x)*(x < z1) + l(x,z2,z1,u1,u2)*((z1<=x)*(x < z2))+u1*(z2<= x)*(x<eps-Wx)+l(x,eps-Wx,eps+Wx,u1,u2)*(eps-Wx<=x);
-    def M3(x,t):
-        return M1(x,t,u2,u1)
+#    def M3(x,t):
+#        return M1(x,t,u2,u1)
     
-    def M4(x,t):
-        return (py(x,-Wx,Wx,t,tau-Wt,tau+Wt,u1,u2)*(x<Wx)+
-                 l(t,tau-Wt,tau+Wt,u2,u1)*(x>=Wx)*(x<m1*eps-Wx)+
-                py(x,m1*eps-Wx,m1*eps+Wx,t,tau-Wt,tau+Wt,u2,u1)*(x>=m1*eps-Wx)*(x<m1*eps+Wx)+ 
-		l(t,tau-Wt,tau+Wt,u1,u2)*(m1*eps+Wx<=x)*(x<eps-Wx)+py(x,eps-Wx,eps+Wx,t,tau-Wt,tau+Wt,u1,u2)*(x>=eps-Wx))
+#    def M4(x,t):
+#        return (py(x,-Wx,Wx,t,tau-Wt,tau+Wt,u1,u2)*(x<Wx)+
+#                 l(t,tau-Wt,tau+Wt,u2,u1)*(x>=Wx)*(x<m1*eps-Wx)+
+#                py(x,m1*eps-Wx,m1*eps+Wx,t,tau-Wt,tau+Wt,u2,u1)*(x>=m1*eps-Wx)*(x<m1*eps+Wx)+ 
+#		l(t,tau-Wt,tau+Wt,u1,u2)*(m1*eps+Wx<=x)*(x<eps-Wx)+py(x,eps-Wx,eps+Wx,t,tau-Wt,tau+Wt,u1,u2)*(x>=eps-Wx))
       
-    def Fin(x,t):
-        t1=n1*tau-Wt;
-        t2=n1*tau+Wt;
-	return (M0(x,t)*(t<Wt)+
-                M1(x,t,u1,u2)*(Wt<=t)*(t <t1)+
-                M2(x,t)*((t1 <= t)*(t <t2))+
-                M3(x,t)*(t2<= t)*(t<tau-Wt)+
-                M4(x,t)*(tau-Wt<=t))
+#    def Fin(x,t):
+#        t1=n1*tau-Wt;
+#        t2=n1*tau+Wt;
+#	return (M0(x,t)*(t<Wt)+
+#                M1(x,t,u1,u2)*(Wt<=t)*(t <t1)+
+#                M2(x,t)*((t1 <= t)*(t <t2))+
+#                M3(x,t)*(t2<= t)*(t<tau-Wt)+
+#                M4(x,t)*(tau-Wt<=t))
 
-    return Fin(xTi,tTi)
+#    return Fin(xTi,tTi)
 
 #def f_u(x,t,u1,u2):
     #Wx=eps/10;
@@ -364,7 +364,7 @@ plt.xlim([0.0,1.0*eps])
 plt.ylim([0.0,1.0*tau])
 
 
-plt.title('Characteristics for '+r'$\delta =$'+str(eps) +  \
+plt.title(r'$\delta =$'+str(eps) +  \
 	  r', $\tau =$' + str(tau) + ', $m$ =' + str(m1) + ', $n$=' +str(n1) +\
 	  r', $\alpha_1=$'   + str(a1)  + r', $\alpha_2$=' + str(a2)+", \n"+
 	   r'$p$='+str(alpha)+r', $q=$'+str(beta)+r',    $dt=$'+str(dt))
@@ -394,13 +394,13 @@ n_Contours=40;
 
 #plt.contour(X,T,f_u(X,T,a1,a2),contours=n_Contours,colors='k')
 
-
-plt.xlim([1.0*eps,2.0*eps])
+#This is a hack: 0.5 should be m and n, but for the case I am working with m=n=0.5 so it happens to work
+plt.xlim([0.5*eps,1.5*eps])
 #plt.xlim([0.0,1.0*eps+m1*eps])
-plt.ylim([1.0*tau,2.0*tau])
+plt.ylim([0.5*tau,1.5*tau])
 
 
-plt.title('Characteristics for '+r'$\delta =$'+str(eps) +  \
+plt.title(r'$\delta =$'+str(eps) +  \
 	  r', $\tau =$' + str(tau) + ', $m$ =' + str(m1) + ', $n$=' +str(n1) +\
 	  r', $\alpha_1=$'   + str(a1)  + r', $\alpha_2$=' + str(a2)+", \n"+
 	   r'$p$='+str(alpha)+r', $q=$'+str(beta)+r',    $dt=$'+str(dt))
@@ -433,7 +433,7 @@ plt.xlim([0.0,b])
 plt.ylim([0.0,Tf])
 
 
-plt.title('Characteristics for '+r'$\delta =$'+str(eps) +  \
+plt.title(r'$\delta =$'+str(eps) +  \
 	  r', $\tau =$' + str(tau) + r', $m$ =' + str(m1) + r', $n$=' +str(n1) +\
 	  r', $\alpha_1=$'   + str(a1)  + r', $\alpha_2$=' + str(a2)+", \n"+
 	   r'$p$='+str(alpha)+r', $q=$'+str(beta)+r',    $dt=$'+str(dt))
@@ -479,7 +479,7 @@ n_Contours=2;
 plt.xlim([9*eps,10*eps])
 plt.ylim([9*tau,10*tau])
 
-plt.title('Characteristics for '+r'$\delta =$'+str(eps) +  \
+plt.title(r'$\delta =$'+str(eps) +  \
 	  r', $\tau =$' + str(tau) + ', $m$ =' + str(m1) + ', $n$=' +str(n1) +\
 	  r', $\alpha_1=$'   + str(a1)  + r', $\alpha_2$=' + str(a2)+", \n"+
 	   r'$p$='+str(alpha)+r', $q=$'+str(beta)+r',    $dt=$'+str(dt))

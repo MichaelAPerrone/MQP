@@ -41,7 +41,7 @@ ay=0.0;by=1.0;n_y=1
 #set this variable to pick which material properties we have
 #Need to experiment further here with mu, epsilon, M and N, wave speed and wave impedance to get a better sense for the space and help us improve our lower bounding when considering convergence rate.
 
-MaterialParams = 1#The original code this is derived from was for sound waves, so these variables are in terms of rho and gamma, but these translate to mu and epsilon fairly easily for the equivalent 1+1D electromagnetic wave equations.
+MaterialParams = 2#The original code this is derived from was for sound waves, so these variables are in terms of rho and gamma, but these translate to mu and epsilon fairly easily for the equivalent 1+1D electromagnetic wave equations.
 
 #Trying to make a command line parser so that material properties can be definedfor subsequent runs and the whole thing can be automated in the command line
 #for arg in args
@@ -53,7 +53,7 @@ if MaterialParams == 1:
     gamma=1.0;#Gamma here is not impedance for the electromagnetic case, but inverse impedance
     gamma_1=gamma;
 #    gamma_2=gamma;
-    gamma_2=gamma + 0.4*gamma;
+    gamma_2=gamma + gamma;
     c_1 = .6    # Sound speed (left)
     c_2 = 1.1  # Sound speed (right)
     bulk_1A = gamma_1*c_1  # Bulk modulus in left half
@@ -68,8 +68,8 @@ elif MaterialParams == 2:
     #print('No impedance mismatch or reflection\n')
     gamma=1.0;
     gamma_1=gamma;
-    gamma_2=gamma;
-    c_1 = .6    # Sound speed (left)
+    gamma_2=2.0*gamma;
+    c_1 = 1.1    # Sound speed (left)
     c_2 = 1.1  # Sound speed (right)
     bulk_1A = gamma_1*c_1  # Bulk modulus in left half
     bulk_2A= gamma_2*c_2  # Bulk modulus in right half
@@ -156,12 +156,24 @@ else:
     rho_1=rho_1A
     rho_2=rho_2A
 
+#For testing varying material geometries in terms of spatial period eps, temporal period tau, spatial percentage m and temporal percentage n
+#eps=0.5;tau=0.5;m=.7;n=.7;
+#eps=0.5;tau=0.5;m=.5;n=.7;
+#eps=0.5;tau=0.5;m=.7;n=.5;
+#eps=0.5;tau=0.5;m=1.0;n=.5;
+#eps=0.5;tau=0.5;m=.6;n=.6;
+#eps=0.5;tau=0.5;m=.5;n=.5;
+#eps=0.5;tau=0.5;m=.8;n=.5;
+#eps=0.5;tau=0.5;m=.9;n=.5;
+eps=0.5;tau=0.5;m=.55;n=.5;
+#eps=0.5;tau=0.5;m=.5;n=.55;
 
-eps=0.5;tau=0.5;m=.5;n=.5;
+#eps=0.5;tau=0.5;m=1.0;n=.5; #For 15 periods - set that up above - also make impedances mismatched by a factor of 3, and make phase velocities equal
 
 alpha=.00001;beta= .00001;
 
-timeInterfaceNum = 3;
+#timeInterfaceNum = 15; #For testing pure temporal laminates - has bug in associated limitCurve down in add_plot function
+timeInterfaceNum = 5;
 t_0=0.0;t_F=timeInterfaceNum*tau;
 
 
@@ -233,8 +245,6 @@ temporal_transmit = 0.5*(0.5*((gamma_2/gamma_1) + gamma_1/gamma_2) + 1.0)
 temporal_multiple_ab = c_2/c_1
 temporal_multiple_ba = c_1/c_2
 
-TimeToSpaceRatio = 0.8 #May need to be adjusted for various mesh sizes to get the right result, because Clawpack does not give direct access
-
 #This uses current_data in this code implementation. It calculates the leftgoing and rightgoing energy as a difference between the total energy and the net energy fluxes in space.
 #For now, across the spatial boundaries it just averages the flux through the nearest volume elements.
 #It may be more correct at boundaries to multiply by the transmission coeficcient or equivalently subtract the reflection coeficcient from the net flux at that location.
@@ -253,22 +263,14 @@ def energy_lr(state,rho_1,rho_2,c_1,c_2):
     y = state.y;
     RR = f_u(x,y,state.t,rho_1,rho_2)
     CC = f_u(x,y,state.t,c_1,c_2)
-#    print np.shape(x)
-#    print np.shape(CC)
-#    print np.shape(RR)
- 
-
     #Uses python vectors to take the riemann sum of energy 
-
-#This might have reversed state.q
-#    energy_vector = (0.5/SpaceStepSize**2)*((state.q[1,index_plus_one,0] - state.q[1,index,0])**2/RR[index,0] + (state.q[0,index_plus_one,0] - state.q[0,index,0])**2*(CC[index,0])**2*RR[index,0])
 
     energy_vector = (0.5/SpaceStepSize**2)*((state.q[0,index_plus_one,0] - state.q[0,index,0])**2/RR[index,0] + (state.q[1,index_plus_one,0] - state.q[1,index,0])**2*(CC[index,0])**2*RR[index,0])
     energy = SpaceStepSize*sum(energy_vector) #takes a riemann sum
 #    energy = 1.0 
     #This approximates net flux but does little to properly handle boundaries
     flux_vector = ((((state.q[0,index,0] - state.q[0,index_plus_one,0])*(state.q[1,index,0] - state.q[1,index_plus_one,0]))/(SpaceStepSize**2))*(CC[index,0]**2))
-#Corrects for error in flux measurement at the boundaries
+#Corrects for error in flux measurement at the boundaries?
 #    flux_vector += (RR[index,0] != RR[index_plus_one,0])*0.5*1.4*((((state.q[0,index,0] - state.q[0,index_plus_one,0])*(state.q[1,index,0] - state.q[1,index_plus_one,0]))/(SpaceStepSize**2))*(CC[index,0]**2))
 #
 #    flux_vector = (((state.q[0,index,0] - state.q[0,index_plus_one,0])*(state.q[1,index,0] - state.q[1,index_plus_one,0]))/(SpaceStepSize))*(state.aux[1,index,0]**2)
@@ -283,112 +285,32 @@ def energy_lr(state,rho_1,rho_2,c_1,c_2):
 #    while (i<n_x):    
 #        print '{0},{1}'.format(flux_vector[i], i)
 #        i+=1 
+
+#These print statements are here because certain points at boundaries have inaccurate energy and flux and I was attempting to debug for the case with n_x = 2000 - for further improvement the flux and energy at boundaries need a better approximation in the future
 #    print '999, {0},{1},{2},{3}'.format(state.q[0,999,0],state.q[1,999,0],state.aux[0,999,0],state.aux[1,999,0])
 #    print '1000, {0},{1},{2},{3}'.format(state.q[0,1000,0],state.q[1,1000,0],state.aux[0,1000,0],state.aux[1,1000,0])
 #    print '998, {0},{1},{2},{3}'.format(state.q[0,998,0],state.q[1,998,0],state.aux[0,998,0],state.aux[1,998,0])
 #    print '1999, {0},{1},{2},{3}'.format(state.q[0,1999,0],state.q[1,1999,0],state.aux[0,1999,0],state.aux[1,1999,0])
 #    print '1998, {0},{1},{2},{3}'.format(state.q[0,1998,0],state.q[1,1998,0],state.aux[0,1998,0],state.aux[1,1998,0])
 #    print '0, {0},{1},{2},{3}'.format(state.q[0,0,0],state.q[1,0,0],state.aux[0,0,0],state.aux[1,0,0])
-#Compare derivatives next
-    
-    #net_flux = (0.5/SpaceStepSize) * sum(flux_vector)
-
-#    net_flux = 0.5
-
-#    while i < (n_x):
-#        nxt = np.mod(i+1, n_x)        
-        #calculate energy integral
-#        energy += (0.5/SpaceStepSize)*(((state.q[0,nxt,0] - state.q[0,i,0])**2)/state.aux[0,i,0] + ((state.q[1,nxt,0] - state.q[1,i,0])**2)*(state.aux[1,i,0]**2)*state.aux[0,i,0])
-#
-        #Calculate total net flux at current time step
-#        if state.aux[0,i,0] != state.aux[0,nxt,0]:
-#            net_flux += 0.5*(
-#            (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize))*(state.aux[1,i,0]**2)
-#            + (((state.q[0,nxt+1,0] - state.q[0,nxt,0])*(state.q[1,nxt+1,0] - state.q[1,nxt,0]))/(SpaceStepSize))*(state.aux[1,nxt,0]**2))
-#        else:
-#            net_flux += (((state.q[0,i,0] - state.q[0,nxt,0])*(state.q[1,i,0] - state.q[1,nxt,0]))/(SpaceStepSize))*(state.aux[1,i,0]**2)
-#        i += 1
-#l and r energy should add to total energy and have a difference equal to net flux
-    #Leftgoing and rightgoing energy absolute values add to energy, and difference adds to flux
-#    r_Energy = 0.5*energy + net_flux
-#    l_Energy = 0.5*energy - net_flux
+#Compare derivatives next    
     energy_lr = [energy, l_Energy, r_Energy]
     return energy_lr
 
-#This was meant to calculate leftgoing and rightgoing energy over time based on their values for the initial time step, and adding their changes or exchanges at each time step. It doesn't seem to work at all, but that may just be because of the method used to return the values, which seems to change them.
-def energy_reflect(state):
-    l = 0.0
-    r = 0.0
-    fluxlr = [l,r]
-    flux = 0.0
-    i = 0
-    nxt = np.mod(i+1, n_x)
-    #add change in flux for time step before temporal transition
-    if ((np.mod(state.t,tau)<=n*tau) and (np.mod((state.t + SpaceStepSize*TimeToSpaceRatio),tau)>n*tau)) or ((np.mod(state.t,tau)>n*tau) and (np.mod((state.t + SpaceStepSize*TimeToSpaceRatio),tau)<=n*tau)):
-        while (i < n_x): 
-#            if (state.aux[0,i,0] == state.aux[0,nxt,0]):
-#            #No need to average across the interface when calculating flux in region with constant material properties
-#                flux = (((state.q[0,nxt,0] - state.q[0,i,0])*(state.q[1,nxt,0] - state.q[1,i,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
-#                if (state.aux[0,i,0] == rho_1): #Material 1 to 2 at interface
-#                    fluxlr[0] += flux*temporal_reflect*temporal_multiple_ab - (temporal_multiple_ba - 1.0)*flux*(flux < 0)
-#                    fluxlr[1] += (-1.0)*flux*temporal_reflect*temporal_multiple_ab + (temporal_multiple_ba - 1.0)*flux*(flux >= 0)
-#                    #transmitted energy multiplies: add new energy generated, avoiding double-counting of energy that was already there
-#                    #And  account for exchange by reflection separately    
-#                else: #Material 2 to 1 at interface
-#                    fluxlr[0] += flux*temporal_reflect*temporal_multiple_ba - (temporal_multiple_ba - 1.0)*flux*(flux < 0)
-#                    fluxlr[1] += (-1.0)*flux*temporal_reflect*temporal_multiple_ba + (temporal_multiple_ba - 1.0)*flux*(flux >= 0)
-#                print '{0},{1},{2},{3},{4},{5},{6}'.format(fluxlr[0],fluxlr[1],flux,(flux < 0),(flux >=0),temporal_transmit,temporal_reflect)
-#            else: #Calculate flux at corners with both spatial and temporal interface - the small contribution can be thrown out for now
-                #do averaging over spatial interface, then use that flux in the temporal switching calculation, with leftgoing and rightgoing fluxes partitioned into separate materials accordingly when doing the calculation
-#                flux = (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
-#                flux += (((state.q[0,nxt+1,0] - state.q[0,nxt,0])*(state.q[1,nxt+1,0] - state.q[1,nxt,0]))/(SpaceStepSize**2))*(state.aux[1,nxt,0]**2)
-#                flux = flux*0.5 
-#                if (state.aux[0,i,0] == rho_1): #Material 1 to 2 at interface
-#                    fluxlr[0] += flux*spatial_reflect_ab
-#                    fluxlr[1] -= flux*spatial_reflect_ab
-#                else:
-#                    fluxlr[0] += flux*spatial_reflect_ba
-#                    fluxlr[1] -= flux*spatial_reflect_ba
-            i += 1
-    #when not at a temporal interface, we just calculate energy exchanged between leftgoing and rightgoing waves at spatial boundaries at each time step
-    else:
-        #we want the average of the fluxes on the two sides of the interfaces
-        while (i < n_x):
-#            print 'got to position 1' 
-#            print 'i is {0}'.format(i)
-            if state.aux[0,i,0] != state.aux[0,nxt,0]:
-#                print 'got to position 2'
-                #calculate flux across the boundary
-                flux = (((state.q[0,i,0] - state.q[0,i-1,0])*(state.q[1,i,0] - state.q[1,i-1,0]))/(SpaceStepSize**2))*(state.aux[1,i,0]**2)
-                flux += (((state.q[0,nxt+1,0] - state.q[0,nxt,0])*(state.q[1,nxt+1,0] - state.q[1,nxt,0]))/(SpaceStepSize**2))*(state.aux[1,nxt,0]**2)
-                flux = flux*0.5
-                #partition flux 
-                if (state.aux[0,i,0] == rho_1): #Material 1 to 2 at interface
-                    fluxlr[0] += flux*spatial_reflect_ab #note that a negative flux will still be added and subtracted correctly
-                    fluxlr[1] -= flux*spatial_reflect_ab #becauses leftgoing energy flux is negative and rightgoing is positive
-#                    print 'got to position 3'
-                else: #material 2 to 1 at interface
-                    fluxlr[0] += flux*spatial_reflect_ba
-                    fluxlr[1] -= flux*spatial_reflect_ba
-#                    print 'got to position 4'
-#            print 'i is {0}'.format(i)
-            i += 1
-
-#    def M1(x,y): #These partition the function in space
-#        return (u1*(np.mod(x,eps)<m*eps) + u2*(np.mod(x,eps)>=m*eps));
-#    def M2(x,y):
-#        return (u2*(np.mod(x,eps)<m*eps) + u1*(np.mod(x,eps)>=m*eps));
-#
-    return fluxlr #leftgoing and rightgoing flux at this time step should be added to a global 
-
-
 #For use with the exponential limit curve, requires access to the global variables
 base = np.amax([c_1,c_2])/np.amin([c_1,c_2])
+base2 = (gamma_1/gamma_2 + gamma_2/gamma_1)
 
 def LimitCurve(Energy,T,T_0): #using initial energy, velocities and material geometry this will calculate the energy limit curve
     eLim = Energy*np.power(base,((T-T_0)/(n*tau)))
 #np.exp(InitialEnergy, )
     return eLim
+
+def LimitCurve2(Energy,T,T_0): #using initial energy, velocities and material geometry this will calculate the energy limit curve
+    eLim = Energy*np.power(base2,((T-T_0)/(n*tau)))
+#np.exp(InitialEnergy, )
+    return eLim
+
 
 
 
@@ -461,34 +383,22 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
 #    state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2  )    # Sound speed
     state.aux[1,:,:] = f_u(X,Y,0.0,c_1  ,c_2)    # Sound speed
 
-    # Set asymmetric initial condition
-#    x0 = -0.5; y0 = 0.
-#    r = np.sqrt((X-x0)**2 + (Y-y0)**2) # calculates a radial distance to a specified point (x0,y0)
-#    width = 0.10; rad = 0.25
-#    state.q[0,:,:] = f_bump(X,0.0,0.4) # sets the initial condition along the x direction
-#    state.q[1,:,:] = 0.
-#    state.q[2,:,:] = 0.
 
-    # Set symmetric initial condition
-    x0 = -0.5; y0 = 0.0
+    x0 = -0.5; y0 = 0.
     r = np.sqrt((X-x0)**2 + (Y-y0)**2) # calculates a radial distance to a specified point (x0,y0)
     width = 0.10; rad = 0.25
     state.q[0,:,:] = f_bump(X,0.0,0.25) # sets the initial condition along the x direction
+
+#use just one of these
 #for asymmetric initial condition
     state.q[1,:,:] = f_bump(X,0.0,0.25)
 #for less asymmetric initial condition 
 #    state.q[1,:,:] = 0.5*f_bump(X,0.0,0.25)
 #for symmetric initial condition
 #    state.q[1,:,:] = 0.0
+
     state.q[2,:,:] = 0.0
-#    Prevstep = state.q
-    #set up left energy and right energy here inside current_data
-   # InitEnergy = total_energy(state)
-    #print '{0}'.format(InitEnergy)
-   # l_Energy = InitEnergy*0.5
-    #print '{0}'.format(l_Energy)
-   # r_Energy = InitEnergy*0.5
-    #print '{0}'.format(r_Energy)
+
 
 #!!Sets Local Material Properties State, outputs current wave state to buffer, calculates current energy and outputs it to CSV with current time step for plotting
     def DoBefore(solver,state):
@@ -516,7 +426,9 @@ def setup(aux_time_dep=True,kernel_language='Fortran', use_petsc=False, outdir='
     claw.solver = solver
     claw.outdir = outdir
     claw.tfinal = t_F
-    claw.num_output_times = 100 #sets how many graphs are produced
+    claw.num_output_times = timeInterfaceNum*50 #sets how many graphs are produced: this one allows scale-up to longer timescales when 
+    #outputting energy over time
+#    claw.num_output_times = 100 #sets how many graphs are produced
     claw.write_aux_init = True
     claw.write_aux=True
     claw.setplot = setplot
@@ -616,12 +528,17 @@ def setplot(plotdata):#maybe it is possible to add state here and use it instead
 
       #Currently this limit curve code must be adjusted whenever we change
       #the number of X points. Magic programming numbers are awful. Currently it should work for 20000 points.
-        if current_data.t == 1.005:#With access to all of current_data we can in principle graph these things using clawpack instead of outputting to Excel
+	if current_data.t == 1.5:#With access to all of current_data we can in principle graph these things using clawpack instead of outputting to Excel
             time = 0.0
-            while time <= 1.5:
+            while time <= 2.5:
+#This first limit curve works for energy growth from velocity mismatch.
+#The second limit curve works for energy growth from impedance mismatch.
+#Need to make a more general function for both eventually
                 print 'LimitCurve {0}'.format(LimitCurve(Energy[0],time,current_data.t))
-                time += (1.5/100.0)
-       
+#                print 'LimitCurve {0}'.format(LimitCurve2(Energy[0],time,current_data.t))
+		#time += (1.5/(timeInterfaceNum*50)
+                time += (2.5/250.0) #hack for now when timeinterfacenum=10
+
     plotaxes.afteraxes = add_plot #Allows us to plot additional functions of current_data
     plotaxes.xlimits=[ax,bx]   
     plotaxes.ylimits=[0.0,1.8] #should really be the max of wave amplitude, though that may change depending on the energy
